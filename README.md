@@ -1,3 +1,7 @@
+
+
+### My steps of doing task:
+
 `rails new finance_app`  
 `cd finance_app`
 
