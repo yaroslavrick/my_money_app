@@ -1,2 +1,37 @@
+<% require 'date' %>
 <h1>Reports#index</h1>
 <p>Find me in app/views/reports/index.html.erb</p>
+
+<p>Генератор звітів</p>
+
+<div id="date_from">
+  <label for="date_from">Date from:</label>
+
+  <input type="date" id="date_from" name="date-from"
+value="<%= Date.today.strftime( '%Y-%m-%d').to_s
+%>"
+         min="2018-01-01" max="2030-12-31">
+</div>
+
+<div id="date_to">
+  <label for="date_to">Date to:</label>
+
+  <input type="date" id="date_to" name="date-to"
+         value="<%= Date.today.strftime( '%Y-%m-%d').to_s
+         %>"
+         min="2018-01-01" max="2030-12-31">
+</div>
+
+<div>
+  <p>Тип операцій</p>
+
+  <select name="operations">
+    <option value="expences" selected="selected">Витрата</option>
+    <option value="income">Прибуток</option>
+  </select>
+</div>
+
+<div>
+  <p>Категорія</p>
+  <%= select("name", "id", Category.all.collect {|p| [ p.name, p.id ] }, { include_blank: true }) %>
+</div>
