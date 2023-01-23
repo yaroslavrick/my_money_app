@@ -70,6 +70,19 @@ in `app/models/operation`:
    параметрах маршрутизації config/routes.rb
 2. У файлі config/routes.rb додати запис про root-маршрут в наступному форматі
    root “main#index”
+
+#### STEPS:
+
+```zsh
+rails g controller Main index
+```
+in `config/routes.rb`:
+```ruby
+root "main#index"
+```
+
+
+
    Для роботи зі звітами на стороні клієнта необхідно:
 1. Створити контролер “Reports” з action-методами index, report_by_category та
    report_by_dates
@@ -100,12 +113,6 @@ in `app/models/operation`:
    b. У файлі конфігурації маршрутів config/routes.rb прописати маршрути до
    всіх action-методів контролера Reports
 
-#### STEPS:
-
 ```zsh
-rails g controller Main index
-```
-in `config/routes.rb`:
-```ruby
-root "main#index"
+rails g controller Reports index report_by_category report_by_dates
 ```
