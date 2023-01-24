@@ -1,23 +1,23 @@
 <% require 'date' %>
-<h1>Reports#index</h1>
+Reports#index
 <p>Find me in app/views/reports/index.html.erb</p>
 
-<p>Генератор звітів</p>
+<h1>Генератор звітів</h1>
 
 <div id="date_from">
-  <label for="date_from">Date from:</label>
+  <label for="date_from">Date from: (YYYY-MM-DD)</label>
 
   <input type="date" id="date_from" name="date-from"
-value="<%= Date.today.strftime( '%Y-%m-%d').to_s
+value="<%= Date.yesterday.strftime( '%Y-%m-%d')
 %>"
          min="2018-01-01" max="2030-12-31">
 </div>
 
 <div id="date_to">
-  <label for="date_to">Date to:</label>
+  <label for="date_to">Date to: (YYYY-MM-DD)</label>
 
   <input type="date" id="date_to" name="date-to"
-         value="<%= Date.today.strftime( '%Y-%m-%d').to_s
+         value="<%= Date.today.strftime( '%Y-%m-%d')
          %>"
          min="2018-01-01" max="2030-12-31">
 </div>
@@ -33,5 +33,10 @@ value="<%= Date.today.strftime( '%Y-%m-%d').to_s
 
 <div>
   <p>Категорія</p>
-  <%= select("name", "id", Category.all.collect {|p| [ p.name, p.id ] }, { include_blank: true }) %>
+  <%= select("name", "id", Category.pluck(:name, :id), { include_blank: true }) %>
 </div>
+
+<button>Згенерувати</button>
+<button>Очистити</button>
+<button>Графік</button>
+<button>По датам</button>
