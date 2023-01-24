@@ -29,20 +29,7 @@
   <div>
     <%= form.label :category_id, style: "display: block" %>
     <%#= form.text_field :category_id %>
-    <%#= form.collection_select :category_id, Category.order(:id), category.ids, category.name %>
-
-
-    <%# category.each do |item| %>
-      <%# item %>
-    <%# end %>
-
-    <select name="Select name">
-      <% Category.all.each do |categ| %>
-        <%= form.collection_select categ.id, Category.order(categ.name), category.ids, category.name %>
-<!--        <option value="<%#= categ.id %>"><%#= categ.name %></option>-->
-      <% end %>
-    </select>
-
+    <%= select("name", "category_id", Category.pluck(:name, :id), { :prompt => 'Select' }) %>
   </div>
 
   <div>
