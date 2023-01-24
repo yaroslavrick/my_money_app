@@ -5,7 +5,6 @@ Reports#index
 <h1>Генератор звітів</h1>
 
 <%# form_for(reports) do |f| %>
-<% form_with(model: operations_url) do |f| %>
 
   <div id="date_from">
     <label for="date_from">Date from: (YYYY-MM-DD)</label>
@@ -29,23 +28,23 @@ Reports#index
     <p>Тип операцій</p>
 
     <select name="operations">
-      <option value="expences" selected="selected">Витрата</option>
+      <option value="expenses" selected="selected">Витрата</option>
       <option value="income">Прибуток</option>
     </select>
   </div>
 
   <div>
     <p>Категорія</p>
-    <%= select("name", "id", Category.pluck(:name, :id), { include_blank: true }) %>
+    <%= select("operation", "id", Category.pluck(:name, :id), { :prompt => 'Select' }) %>
   </div>
 
-  <%= f.submit "Згенерувати" %>
-  <%= f.submit "Очистити" %>
-  <%= f.submit "Графік" %>
-  <%= f.submit "По датам" %>
+  <%#= f.submit "Згенерувати" %>
+  <%#= f.submit "Очистити" %>
+  <%#= f.submit "Графік" %>
+  <%#= f.submit "По датам" %>
 
-  <%= f.submit "Special Action", formaction: special_action_path %>
-<% end %>
+  <%#= f.submit "Special Action", formaction: special_action_path %>
+<%# end %>
 
 
 
