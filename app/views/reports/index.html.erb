@@ -1,35 +1,5 @@
 <% require 'date' %>
 <h1>Генератор звітів</h1>
 
-<%= form_with url: "/reports/index", method: :get do |f| %>
-  <div>
-    <label for="date_from">Дата від:</label>
-    <input type="date" id="date_from" name="filter[date-from]" value="<%= Date.yesterday.strftime('%Y-%m-%d') %>"  min="2018-01-01" max="2030-12-31">
-  </div>
-
-  <div>
-    <label for="date_to">Дата по:</label>
-    <input type="date" id="date_to" name="filter[date-to]" value="<%= Date.today.strftime('%Y-%m-%d') %>">
-  </div>
-
-  <div>
-    <p>Тип операції</p>
-    <select name="operations">
-      <option value="expenses" selected="selected">Витрата</option>
-      <option value="income">Прибуток</option>
-    </select>
-  </div>
-
-  <div>
-    <p>Категорія</p>
-    <%= select("operation", "category_id", Category.pluck(:name, :id),
-              {:prompt => 'Категорія'}) %>
-  </div>
-  <div>
-    <button type="submit">Згенерувати</button>
-    <button type="submit"> <%= link_to "Очистити", reports_index_path %></button>
-    <%= f.submit "За категорією", formaction: reports_report_by_category_path %>
-    <%= f.submit "За датою", formaction: reports_report_by_dates_path %>
-  </div>
-<% end %>
+<%= render "form" %>
 
