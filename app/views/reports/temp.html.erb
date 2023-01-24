@@ -1,0 +1,42 @@
+<%# form_for(reports) do |f| %>
+
+<div id="date_from">
+<label for="date_from">Date from: (YYYY-MM-DD)</label>
+
+<input type="date" id="date_from" name="date-from"value="<%= Date.yesterday.strftime( '%Y-%m-%d')%> min="2018-01-01" max="2030-12-31">
+  </div>
+
+  <div id="date_to">
+    <label for="date_to">Date to: (YYYY-MM-DD)</label>
+
+    <input type="date" id="date_to" name="date-to" value="<%= Date.today.strftime( '%Y-%m-%d')%>"
+           min="2018-01-01" max="2030-12-31">
+  </div>
+
+  <div>
+    <p>Тип операцій</p>
+
+    <select name="operations">
+      <option value="expenses" selected="selected">Витрата</option>
+      <option value="income">Прибуток</option>
+    </select>
+  </div>
+
+  <div>
+    <p>Категорія</p>
+<%#= select("operation", "id", Category.pluck(:name, :id), { :prompt => 'Select' }) %>
+  </div>
+
+
+  <button>Згенерувати</button>
+  <button>Очистити</button>
+  <button>Графік</button>
+  <button>По датам</button>
+
+<%#= f.submit "Згенерувати" %>
+<%#= f.submit "Очистити" %>
+<%#= f.submit "Графік" %>
+<%#= f.submit "По датам" %>
+
+<%#= f.submit "Special Action", formaction: special_action_path %>
+<%# end %>
