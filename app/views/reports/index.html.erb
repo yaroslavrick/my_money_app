@@ -38,6 +38,12 @@ Reports#index
     <%= select("operation", "id", Category.pluck(:name, :id), { :prompt => 'Select' }) %>
   </div>
 
+
+  <button>Згенерувати</button>
+  <button>Очистити</button>
+  <button>Графік</button>
+  <button>По датам</button>
+
   <%#= f.submit "Згенерувати" %>
   <%#= f.submit "Очистити" %>
   <%#= f.submit "Графік" %>
