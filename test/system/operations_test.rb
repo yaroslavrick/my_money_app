@@ -14,6 +14,7 @@ class OperationsTest < ApplicationSystemTestCase
     visit operations_url
     click_on "New operation"
 
+    fill_in "Activity", with: @operation.activity_id
     fill_in "Amount", with: @operation.amount
     fill_in "Category", with: @operation.category_id
     fill_in "Description", with: @operation.description
@@ -28,6 +29,7 @@ class OperationsTest < ApplicationSystemTestCase
     visit operation_url(@operation)
     click_on "Edit this operation", match: :first
 
+    fill_in "Activity", with: @operation.activity_id
     fill_in "Amount", with: @operation.amount
     fill_in "Category", with: @operation.category_id
     fill_in "Description", with: @operation.description

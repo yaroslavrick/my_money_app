@@ -25,10 +25,11 @@
             Activities
           </a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Activity 1 (Витрата) </a></li>
-            <li><a class="dropdown-item" href="#">Activity 2 (Дохід) </a></li>
+            <% Activity.all.each do |activity| %>
+              <li><a class="dropdown-item" href="/activities/<%= activity.id %>"><%= activity.atype %></a></li>
+            <% end %>
             <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="/operations">Усі транзакції</a></li>
+            <li><a class="dropdown-item" href="/activities">Усі транзакції</a></li>
           </ul>
         </li>
 <!--        Допомога-->

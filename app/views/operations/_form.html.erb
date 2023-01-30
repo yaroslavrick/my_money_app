@@ -22,7 +22,7 @@
     <%= form.label :activity_id, style: "display: block" %>
     <%#= form.text_field :category_id %>
     <%#= select("operation", "category_id", Category.pluck(:name, :id), { :prompt => 'Select' }) %>
-    <%= form.select("activity", Activity.pluck(:atype, :id), { :prompt => 'Select' }) %>
+    <%= form.select("activity_id", Activity.pluck(:atype, :id), { :prompt => 'Select' }) %>
   </div>
 
   <div>

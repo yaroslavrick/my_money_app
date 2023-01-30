@@ -119,3 +119,4 @@ rails g controller Reports index report_by_category report_by_dates
 
 TODO:
 `rails g model Activity atype:string`
+`rails g scaffold Operation amount:decimal odate:datetime description:string category:references activity:references`

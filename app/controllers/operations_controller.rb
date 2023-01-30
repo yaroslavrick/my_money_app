@@ -13,7 +13,6 @@ class OperationsController < ApplicationController
   # GET /operations/new
   def new
     @operation = Operation.new
-    @categories = Category.all
   end
 
   # GET /operations/1/edit
@@ -66,6 +65,6 @@ class OperationsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def operation_params
-      params.require(:operation).permit(:amount, :odate, :description, :category_id)
+      params.require(:operation).permit(:amount, :odate, :description, :category_id, :activity_id)
     end
 end
