@@ -6,6 +6,8 @@ class CreateOperations < ActiveRecord::Migration[7.0]
       t.string :description
       t.references :category, null: false, foreign_key: true
       t.references :activity, null: false, foreign_key: true
+      t.belongs_to :activity
+      t.belongs_to :category
 
       t.timestamps
     end
