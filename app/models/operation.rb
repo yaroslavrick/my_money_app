@@ -1,5 +1,6 @@
 class Operation < ApplicationRecord
   belongs_to :category
+  belongs_to :activity
 
   #   Сума операції – обов’язкова властивість, а також значення – число, яке
   #    більше за 0
