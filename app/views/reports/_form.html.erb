@@ -11,10 +11,7 @@
 
   <div>
     <p>Тип операції</p>
-    <select name="operations">
-      <option value="expenses" selected="selected">Витрата</option>
-      <option value="income">Прибуток</option>
-    </select>
+    <%= select("activity", "activity_id", Activity.pluck(:atype, :id) {:prompt => 'Тип операції'}) %>,
   </div>
 
   <div>
