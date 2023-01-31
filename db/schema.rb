@@ -28,14 +28,12 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_30_173324) do
     t.decimal "amount"
     t.datetime "odate"
     t.string "description"
-    t.integer "activity_id"
-    t.integer "category_id"
+    t.integer "category_id", null: false
+    t.string "activity"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["activity_id"], name: "index_operations_on_activity_id"
     t.index ["category_id"], name: "index_operations_on_category_id"
   end
 
-  add_foreign_key "operations", "activities"
   add_foreign_key "operations", "categories"
 end

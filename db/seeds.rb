@@ -6,8 +6,12 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
+# Generating activities:
 debit = Activity.create(atype: "debit")
 credit = Activity.create(atype: "credit")
 
+# Generating Categories:
 # categ1 = Category.create(name: "phones", description: "cell and mobile phones")
 # categ2 = Category.create(name: "laptops", description: "small computers")
+
+# Generating Operations:

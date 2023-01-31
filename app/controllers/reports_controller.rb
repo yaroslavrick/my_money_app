@@ -3,8 +3,8 @@ class ReportsController < ApplicationController
   end
 
   def report_by_category
-    # @operations = Operation.all
-    @operations = Operation.where("category_id = ?", params["operation"]["category_id"]) unless params["operation"]["category_id"].empty?
+    # @operations = Operation.where("category_id = ?", params["operation"]["category_id"]) unless params["operation"]["category_id"].empty?
+    @operations = Operation.where("category_id = :category AND activity_id = :activity", { category: params["operation"]["category_id"], activity: params["activity"]["activity_id"] })
   end
 
   def report_by_dates
