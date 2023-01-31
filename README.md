@@ -121,7 +121,6 @@ root "main#index"
 rails g controller Reports index report_by_category report_by_dates
 ```
 
-TODO:
 `rails g model Activity atype:string`
 `rails g scaffold Operation amount:decimal odate:datetime description:string category:references activity:references`
 
@@ -134,3 +133,7 @@ in `db/migrate/20230116103618_create_operations.rb`:
 ```
 
 `rails db:migrate`
+
+TODO:
+1. Add paginator([Kaminari](https://github.com/kaminari/kaminari))
+2. Add canvas to reports results graphics ([ChartJS](https://www.chartjs.org/))
