@@ -147,3 +147,13 @@ TODO:
 1. Add paginator([Kaminari](https://github.com/kaminari/kaminari))
 2. Add canvas to reports results graphics ([ChartJS](https://www.chartjs.org/), [Chartkick](https://chartkick.com/)) 
 3. Add `yurkovskiy` to collaborators 
+
+### Adding Pagination (kaminari):
+
+in `Gemfile`:
+
+`gem 'kaminari'`
+
+`bundle`
+
+`rails g kaminari:config`
