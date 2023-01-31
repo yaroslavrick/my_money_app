@@ -134,6 +134,15 @@ in `db/migrate/20230116103618_create_operations.rb`:
 
 `rails db:migrate`
 
+To [reset db](https://stackoverflow.com/questions/20464924/rails-migration-does-not-change-schema-rb) if needed :
+```zsh
+rake db:reset => db:drop db:create db:schema:load db:seed
+
+To run all the migrations, use : rake db:drop db:create db:migrate
+
+Or db:migrate:reset=> rake db:drop db:create db:migrate
+```
+
 TODO:
 1. Add paginator([Kaminari](https://github.com/kaminari/kaminari))
 2. Add canvas to reports results graphics ([ChartJS](https://www.chartjs.org/), [Chartkick](https://chartkick.com/)) 
