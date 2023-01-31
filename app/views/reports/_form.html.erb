@@ -11,7 +11,7 @@
 
   <div>
     <p>Тип операції</p>
-    <%= select("activity", "activity_id", Activity.pluck(:atype, :id) {:prompt => 'Тип операції'}) %>,
+    <%= select("activity", "activity_id", Activity.pluck(:atype, :id) {:prompt => 'Тип операції'}) %>
   </div>
 
   <div>
