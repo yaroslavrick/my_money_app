@@ -1,2 +1,19 @@
 <h1>Main#index</h1>
 <p>Find me in app/views/main/index.html.erb</p>
+
+<h1>Усі операції</h1>
+<hr>
+
+<% @operations.each do |operation| %>
+  <div>
+    <p><b>id:</b> <%= operation.id %></p>
+    <p><b>Description:</b> <%= operation.description %></p>
+    <p><b>Amount:</b> <%= operation.amount %></p>
+    <p><b>Date:</b> <%= operation.odate %></p>
+    <p><b>Activity id:</b> <%= operation.activity_id %></p>
+    <p><b>Activity:</b> <%= @activities.find(operation.activity_id).atype %></p>
+    <p><b>Category id:</b> <%= operation.category_id %></p>
+    <p><b>Category:</b> <%= @categories.find(operation.category_id).name %></p>
+  </div>
+  <hr>
+<% end %>

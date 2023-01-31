@@ -6,7 +6,9 @@ class ReportsController < ApplicationController
     # @operations = Operation.where("category_id = ?", params["operation"]["category_id"]) unless params["operation"]["category_id"].empty?
     @operations = Operation.where("category_id = :category AND activity_id = :activity", { category: params["operation"]["category_id"], activity: params["activity"]["activity_id"] })
 
-
+    operations_data = @operations.map { |o| [o.amount, o.category_id] }
+    @dates = operations_data.map { |e| e[1]}
+    @categories = operations_data.map { |e| e[0]}
   end
 
   def report_by_dates
