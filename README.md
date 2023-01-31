@@ -12,14 +12,14 @@
 в файлі `app/models/category.rb`
 
 ```ruby
-    # Вказую у множині, так Rails зрзуміє, що в Category може бути багато Operations  
-    has_many :operations  
+    # Вказую у множині, так Rails зрзуміє, що в Category може бути багато Operations
+    has_many :operations
 ```
 
 в файлі `app/models/operation.rb`
 
 ```ruby
-    belongs_to :category  
+    belongs_to :category
 ```
 
 ### Adding validations (module 18):
@@ -40,6 +40,7 @@
 #### steps:
 
 in `app/models/category`:
+
 ```ruby
   validates :name, presence: true
   # Назва категорії має бути унікальною (не може бути двох категорій з
@@ -50,6 +51,7 @@ in `app/models/category`:
 ```
 
 in `app/models/operation`:
+
 ```ruby
   #   Сума операції – обов’язкова властивість, а також значення – число, яке
   #    більше за 0
@@ -65,6 +67,7 @@ in `app/models/operation`:
 Завдання цього модуля полягає в створенні методів для формування звітів, а також
 створення контролера для «головної сторінки»
 Для забезпечення функціонування головної сторінки необхідно:
+
 1. Створити контролер “Main” з action-методом index. При створені за допомогою
    генератора автоматично буде також створено шаблон для View, а також запис в
    параметрах маршрутизації config/routes.rb
@@ -76,14 +79,15 @@ in `app/models/operation`:
 ```zsh
 rails g controller Main index
 ```
+
 in `config/routes.rb`:
+
 ```ruby
 root "main#index"
 ```
 
+Для роботи зі звітами на стороні клієнта необхідно:
 
-
-   Для роботи зі звітами на стороні клієнта необхідно:
 1. Створити контролер “Reports” з action-методами index, report_by_category та
    report_by_dates
 2. Найкраще створювати контролер за допомогою генератора, тим самим Rails
@@ -98,12 +102,12 @@ root "main#index"
    Звіт по категоріям
    report_by_dates
    Звіт по датам
-4. Виклик action-методів report_by_**** потрібно забезпечити з форми генератора
+4. Виклик action-методів report*by*\*\*\*\* потрібно забезпечити з форми генератора
    звітів. Для цього потрібно у шаблоні (view) report/index.html.erb зробити дві
    кнопки і прив’язати до них відповідні посилання (приблизний вигляд форми
    можна знайти в загальному завданні на проєкт «Персональний менеджер
    фінансів»)
-5. Щодо реалізації логіки роботи action-методів report_by_****a. Всередині методів необхідно забезпечити звернення до моделі Operation
+5. Щодо реалізації логіки роботи action-методів report*by*\*\*\*\*a. Всередині методів необхідно забезпечити звернення до моделі Operation
    для отримання інформації з бази даних про витрати / доходи за деякий
    період часу в розрізі категорій. Зрозуміло, що використання щось на
    зразок @operations = Operation.all є надзвичайно небезпечним, тому що,
@@ -120,3 +124,13 @@ rails g controller Reports index report_by_category report_by_dates
 TODO:
 `rails g model Activity atype:string`
 `rails g scaffold Operation amount:decimal odate:datetime description:string category:references activity:references`
+
+`rails db:rollback `
+in `db/migrate/20230116103618_create_operations.rb`:
+
+```ruby
+   t.belongs_to :activity, index: true, foreign_key: true
+   t.belongs_to :category, index: true, foreign_key: true
+```
+
+`rails db:migrate`

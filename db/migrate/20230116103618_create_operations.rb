@@ -4,10 +4,8 @@ class CreateOperations < ActiveRecord::Migration[7.0]
       t.decimal :amount
       t.datetime :odate
       t.string :description
-      t.references :category, null: false, foreign_key: true
-      t.references :activity, null: false, foreign_key: true
-      t.belongs_to :activity
-      t.belongs_to :category
+      t.belongs_to :activity, index: true, foreign_key: true
+      t.belongs_to :category, index: true, foreign_key: true
 
       t.timestamps
     end

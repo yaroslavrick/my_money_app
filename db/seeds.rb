@@ -9,5 +9,5 @@
 debit = Activity.create(atype: "debit")
 credit = Activity.create(atype: "credit")
 
-categ1 = Category.create(name: "phones", description: "cell and mobile phones")
-categ2 = Category.create(name: "laptops", description: "small computers")
+# categ1 = Category.create(name: "phones", description: "cell and mobile phones")
+# categ2 = Category.create(name: "laptops", description: "small computers")

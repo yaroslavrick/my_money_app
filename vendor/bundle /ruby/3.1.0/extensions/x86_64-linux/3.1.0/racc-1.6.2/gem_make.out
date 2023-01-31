@@ -1,0 +1,17 @@
+current directory: /mnt/sdb5_files/projects/softserve/ruby_course/finance_app/vendor/bundle /ruby/3.1.0/gems/racc-1.6.2/ext/racc/cparse
+/home/yaroslav-fedora-vaio/.rbenv/versions/3.1.3/bin/ruby -I /home/yaroslav-fedora-vaio/.rbenv/versions/3.1.3/lib/ruby/3.1.0 extconf.rb
+checking for rb_block_call()... yes
+checking for rb_ary_subseq()... yes
+creating Makefile
+
+current directory: /mnt/sdb5_files/projects/softserve/ruby_course/finance_app/vendor/bundle /ruby/3.1.0/gems/racc-1.6.2/ext/racc/cparse
+make DESTDIR\= sitearchdir\=./.gem.20230131-8539-sov8cx sitelibdir\=./.gem.20230131-8539-sov8cx clean
+
+current directory: /mnt/sdb5_files/projects/softserve/ruby_course/finance_app/vendor/bundle /ruby/3.1.0/gems/racc-1.6.2/ext/racc/cparse
+make DESTDIR\= sitearchdir\=./.gem.20230131-8539-sov8cx sitelibdir\=./.gem.20230131-8539-sov8cx
+compiling cparse.c
+linking shared-object racc/cparse.so
+
+current directory: /mnt/sdb5_files/projects/softserve/ruby_course/finance_app/vendor/bundle /ruby/3.1.0/gems/racc-1.6.2/ext/racc/cparse
+make DESTDIR\= sitearchdir\=./.gem.20230131-8539-sov8cx sitelibdir\=./.gem.20230131-8539-sov8cx install
+/bin/install -c -m 0755 cparse.so ./.gem.20230131-8539-sov8cx/racc
