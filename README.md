@@ -163,23 +163,37 @@ in `Gemfile`:
 in `test/models/category_test.rb`:
 
 ```ruby
-  test"return false if name is missed" do
-    new_category = Category.new(description: "Test description")
-    assert_not(new_category.valid?)
-  end
+   test"return false if name is missed" do
+      new_category = Category.new(description: "Test description")
+      assert_not(new_category.valid?)
+   end
 
-  test "return true if everything is okay" do
-    new_category = Category.new(name: "Test name", description: "Test description")
-    assert(new_category.valid?)
-  end
-
-  test "saving and gathering" do
-    new_category = Category.new(name: "Test name", description: "Test description")
-    new_category.save
-    new_cat = Category.find_by(name: "Test name")
-    assert_equal("Test description", new_cat.description)
-  end
+   test "return true if everything is okay" do
+      new_category = Category.new(name: "Test name", description: "Test description")
+      assert(new_category.valid?)
+   end
+   
+   test "saving and gathering" do
+      new_category = Category.new(name: "Test name", description: "Test description")
+      new_category.save
+      new_cat = Category.find_by(name: "Test name")
+      assert_equal("Test description", new_cat.description)
+   end
+   
+   test "testing fixtures/categories. Check the '1st_Category' from database" do
+      category_first = Category.find_by(name: 'TestName')
+      assert_equal('MyDescription', category_first.description)
+   end
 ```
 to run that particular test:
 
 `rails test test/models/category_test.rb`
+
+Якшо були внесені зміни в сценарії міграції, потрібно обов'язково 
+перебудувати тестову базу даних:
+
+`rails db:test:prepare`
+
+Текстові дані для тестової бази даних формуються у вигляді
+фікстур (Fixtures)
+

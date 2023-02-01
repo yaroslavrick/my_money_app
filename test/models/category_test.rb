@@ -1,9 +1,6 @@
 require "test_helper"
 
 class CategoryTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
   test"return false if name is missed" do
     new_category = Category.new(description: "Test description")
     assert_not(new_category.valid?)
@@ -22,7 +19,8 @@ class CategoryTest < ActiveSupport::TestCase
   end
 
   test "testing fixtures/categories. Check the '1st_Category' from database" do
-    category_first = Category.find_by(name: 'MyString')
-    assert_equal('MyString', category_first.name)
+    category_first = Category.find_by(name: 'TestName')
+    assert_equal('MyDescription', category_first.description)
+    assert_equal('TestName', category_first.name)
   end
 end

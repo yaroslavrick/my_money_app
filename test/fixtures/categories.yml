@@ -1,25 +1,14 @@
-# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
-#cat_1:
-#  name: 1st_Category
-#  description: 1st_description
-
-#cat_2:
-#  name: 2nd_Category
-#  description: 2nd_description
-
-#cat_5:
-#  name: 5th_Category
-#  description: 5th_description
-
-#cat_6:
-#  name: 6th_Category
-#  description: 6th_description
-
+# TODO: 10 categories
 one:
-  name: MyString
-  description: MyString
+  name: TestName
+  description: MyDescription
 
 two:
-  name: MyString
-  description: MyString
+  name: SecondTestName
+  description: AnotherDescription
+
+<% 1.upto(10) do |i| %>
+category<%= i %>:
+  name: Category_name<%= i %>
+  description: description<%= i %>
+<% end %>

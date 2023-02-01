@@ -15,4 +15,6 @@ class ReportsControllerTest < ActionDispatch::IntegrationTest
     get reports_report_by_dates_url
     assert_response :success
   end
+
+  test
 end
