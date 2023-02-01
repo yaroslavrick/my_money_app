@@ -18,10 +18,11 @@ two:
 <% 1.upto(10) do |j| %>
   <% 1.upto(20) do |i| %>
 operation_<%= i %>:
-  amount: 9.99
+  amount: rand(10..10000.0).round(2)
   odate: <%= rand((DateTime.now - 2.months)..DateTime.now) %>
   description: MyDescr_<%= i %>
   category: category<%= j %>
-  activity: <%= ["debit", "credit"].sample %>
+  activity: <%= %w[debit credit].sample %>
   <% end %>
 <% end %>
+
