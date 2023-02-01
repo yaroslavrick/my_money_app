@@ -162,9 +162,45 @@ in `Gemfile`:
 
 `gem 'kaminari'`
 
-`bundle`
+```zsh
+bundle
+rails g kaminari:config
+```
 
-`rails g kaminari:config`
+in `/config/initializers/kaminari_config.rb`:
+
+```ruby
+  config.default_per_page = 5
+```
+
+in `app/models/operation`:
+
+```ruby
+  paginates_per 5
+```
+
+in `app/controllers/operations`:
+
+```ruby
+  def index
+    @operations =Post.page params[:page]
+  end
+```
+
+in `app/views/main/index.html.erb`:
+
+```ruby
+  <%= paginate @operations %>
+```
+
+`rails g kaminari:views`
+
+or
+
+`rails g kaminari:views default`
+
+`rails g kaminari:views bootstrap4`
+
 
 
 ### Adding MiniTests:
