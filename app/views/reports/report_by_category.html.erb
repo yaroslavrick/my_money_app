@@ -1,5 +1,32 @@
-<% if @operations %>
-  <% @operations.each do |op| %>
-    <p><%= op.description %></p>
-  <% end %>
-<% end %>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+
+<div class="container">
+  <canvas id="myChart" height="500px" width="1140px" style="display: block; box-sizing: border-box; height: 500px; width: 1140px;"></canvas>
+</div>
+
+<script>
+    const ctx = document.getElementById('myChart');
+
+    const data = {
+        labels: <%= @categories %>,
+        datasets:[{
+            label:'Витрати по категоріям',
+            data: <%= @amounts %>,
+            fill: false,
+            borderColor: 'rgb(75, 192, 192)',
+            tension: 0.1
+        }]
+    }
+
+    const config = {
+        type: 'line',
+        data: data,
+        options: {
+            responsive: true
+        },
+        plugins: []
+    }
+
+    new Chart(ctx, config);
+</script>
