@@ -2,6 +2,10 @@
 
 <h1>Operations</h1>
 
+<div class="add-item">
+    <%= link_to "New operation", new_operation_path %>
+</div>
+
 <div id="operations">
   <% @operations.each do |operation| %>
     <%= render operation %>
@@ -10,5 +14,3 @@
     </p>
   <% end %>
 </div>
-
-<%= link_to "New operation", new_operation_path %>

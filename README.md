@@ -124,7 +124,7 @@ rails g controller Reports index report_by_category report_by_dates
 `rails g model Activity atype:string`
 `rails g scaffold Operation amount:decimal odate:datetime description:string category:references activity:references`
 
-`rails db:rollback `
+`rails db:rollback`
 in `db/migrate/20230116103618_create_operations.rb`:
 
 ```ruby
@@ -138,9 +138,17 @@ To [reset db](https://stackoverflow.com/questions/20464924/rails-migration-does-
 ```zsh
 rake db:reset => db:drop db:create db:schema:load db:seed
 
+rake db:reset
+rake db:drop
+rake db:create
+rake db:schema:load
+rake db:seed
+rake db:drop db:create db:migrate
+
+
 To run all the migrations, use : rake db:drop db:create db:migrate
 
-Or db:migrate:reset=> rake db:drop db:create db:migrate
+Or rake db:migrate:reset=> rake db:drop db:create db:migrate
 ```
 
 TODO:

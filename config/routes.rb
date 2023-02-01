@@ -3,8 +3,6 @@ Rails.application.routes.draw do
   get 'reports/report_by_category', to: 'reports#report_by_category'
   get 'reports/report_by_dates', to: 'reports#report_by_dates'
 
-  resources :activities
-
   # get 'main/index'
   root 'main#index'
   resources :operations
