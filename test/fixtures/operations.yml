@@ -25,4 +25,3 @@ operation_<%= i %>:
   activity: <%= %w[debit credit].sample %>
   <% end %>
 <% end %>
-

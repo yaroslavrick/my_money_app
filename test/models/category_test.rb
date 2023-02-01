@@ -18,9 +18,34 @@ class CategoryTest < ActiveSupport::TestCase
     assert_equal("Test description", new_cat.description)
   end
 
-  test "testing fixtures/categories. Check the '1st_Category' from database" do
+  test "testing fixtures/categories. Check the 'TestName' from database" do
     category_first = Category.find_by(name: 'TestName')
     assert_equal('MyDescription', category_first.description)
     assert_equal('TestName', category_first.name)
+  end
+
+  test "Check the 'Category_name9' from db" do
+    category_9 = Category.find_by(name: 'Category_name9')
+    assert_equal('description9', category_9.description)
+    assert_equal('Category_name9', category_9.name)
+  end
+
+  test "return false if name of category is not unique" do
+    test_category = Category.new(name: 'uniq', description: "test descr")
+    test_category.save
+    not_uniq_category = Category.new(name: 'uniq', description: 'some descr')
+    assert_not(not_uniq_category.valid?)
+  end
+
+  test "return true if name of category is unique" do
+    test_category = Category.new(name: 'uniq', description: "test descr")
+    test_category.save
+    not_uniq_category = Category.new(name: 'uniq2', description: 'some descr')
+    assert(not_uniq_category.valid?)
+  end
+
+  test "return false if 'description' is missed" do
+    test_category = Category.new(name: 'uniq')
+    assert_not(test_category.valid?)
   end
 end
