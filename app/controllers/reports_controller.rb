@@ -6,9 +6,8 @@ class ReportsController < ApplicationController
     @operations = Operation.where("category_id = ?", params["operation"]["category_id"]) unless params["operation"]["category_id"].empty?
     # @operations = Operation.where("category_id = :category", { category: params["operation"]["category_id"]})
 
-    operations_data = @operations.map { |o| [o.amount, o.category_id] }
-    @amounts = operations_data.map { |e| e[0]}
-    @categories = operations_data.map { |e| e[1]}
+    @category = Category.find(params["operation"]["category_id"]).name
+    create_report
   end
 
   def report_by_dates
@@ -17,7 +16,11 @@ class ReportsController < ApplicationController
                                     date_to: params["filter"]["date-to"].to_date
                                   }
     )
+    create_report
+  end
 
+  private
+  def create_report
     operations_data = @operations.map { |o| [o.amount, o.odate.to_s(:without_utc)] }
     @amounts = operations_data.map { |e| e[0]}
     @dates = operations_data.map { |e| e[1]}.sort

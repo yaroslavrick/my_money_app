@@ -1,5 +1,8 @@
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
+<div style="text-align: center">
+    <h1>Витрати по категорії <%= @category %></h1>
+</div>
 
 <div class="container">
   <canvas id="myChart" height="500px" width="1140px" style="display: block; box-sizing: border-box; height: 500px; width: 1140px;"></canvas>
@@ -9,9 +12,9 @@
     const ctx = document.getElementById('myChart');
 
     const data = {
-        labels: <%= @categories %>,
+        labels: <%= raw @dates %>,
         datasets:[{
-            label:'Витрати по категоріям',
+            label:'Гроші/Дата',
             data: <%= @amounts %>,
             fill: false,
             borderColor: 'rgb(75, 192, 192)',
