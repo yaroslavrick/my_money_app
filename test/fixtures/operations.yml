@@ -5,14 +5,12 @@ one:
   odate: 2023-01-30 21:30:47
   description: MyString
   category: one
-  activity: credit
 
 two:
   amount: 9.99
   odate: 2023-01-30 21:30:47
   description: MyString
   category: two
-  activity: debit
 
 # TODO: 10-20 операцій по конкретній категорії в різні періоди часу
 <% 1.upto(10) do |j| %>
@@ -22,6 +20,5 @@ operation_<%= i %>:
   odate: <%= rand((DateTime.now - 2.months)..DateTime.now) %>
   description: MyDescr_<%= i %>
   category: category<%= j %>
-  activity: <%= %w[debit credit].sample %>
   <% end %>
 <% end %>
