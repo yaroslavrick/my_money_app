@@ -5,12 +5,12 @@ class OperationTest < ActiveSupport::TestCase
   #   assert true
   # end
   test "return true if everything is okay" do
-    new_operation = Operation.new(amount: 4.42,
+    new_operation = Operation.new(amount: 0.1685620424667173e4,
                                   odate: Time.now.to_s,
                                   description: "Test description",
                                   category_id: 2,
                                   activity_id: 2)
-    assert_not(new_operation.valid?)
+    assert(new_operation.valid?)
   end
 
   test "return false if missing param 'amount' in operation" do
