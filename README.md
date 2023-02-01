@@ -157,3 +157,29 @@ in `Gemfile`:
 `bundle`
 
 `rails g kaminari:config`
+
+
+### Adding MiniTests:
+in `test/models/category_test.rb`:
+
+```ruby
+  test"return false if name is missed" do
+    new_category = Category.new(description: "Test description")
+    assert_not(new_category.valid?)
+  end
+
+  test "return true if everything is okay" do
+    new_category = Category.new(name: "Test name", description: "Test description")
+    assert(new_category.valid?)
+  end
+
+  test "saving and gathering" do
+    new_category = Category.new(name: "Test name", description: "Test description")
+    new_category.save
+    new_cat = Category.find_by(name: "Test name")
+    assert_equal("Test description", new_cat.description)
+  end
+```
+to run that particular test:
+
+`rails test test/models/category_test.rb`
