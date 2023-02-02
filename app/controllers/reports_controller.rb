@@ -1,7 +1,4 @@
 class ReportsController < ApplicationController
-  def index
-  end
-
   def create_report_by_dates
   end
 

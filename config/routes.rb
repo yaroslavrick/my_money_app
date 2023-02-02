@@ -1,8 +1,6 @@
 Rails.application.routes.draw do
-  get 'reports/index', to: 'reports#index'
   get 'reports/report_by_category', to: 'reports#report_by_category'
   get 'reports/report_by_dates', to: 'reports#report_by_dates'
-
   get 'reports/create_report_by_dates', to: 'reports#create_report_by_dates'
   get 'reports/create_report_by_category', to: 'reports#create_report_by_category'
 
