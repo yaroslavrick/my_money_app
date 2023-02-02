@@ -27,8 +27,8 @@ class ReportsController < ApplicationController
 
   private
   def create_report
-    operations_data = @operations.map { |o| [o.amount, o.odate.to_s(:without_utc)] }
+    operations_data = @operations.map { |o| [o.amount, o.odate.strftime("%Y.%m.%d. %H:%M")] }
     @amounts = operations_data.map { |e| e[0]}
-    @dates = operations_data.map { |e| e[1]}.sort
+    @dates = operations_data.map { |e| e[1]}.sort {|a,b| a <=> b}
   end
 end
