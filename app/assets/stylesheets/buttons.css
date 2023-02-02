@@ -3,7 +3,7 @@
     color: black;
 }
 
-/*a.button-reset:hover,*/
-/*a.button-reset:active {*/
-/*    cursor: default;*/
-/*}*/
+.light-text {
+    color: white;
+}
+

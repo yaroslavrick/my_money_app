@@ -1,0 +1,9 @@
+<div>
+  <label for="date_from" width="70px" class="date_choose_label">Дата від:</label>
+  <input type="date" id="date_from" name="filter[date-from]" value="<%= 1.year.ago.strftime('%Y-%m-%d') %>"  min="2018-01-01" max="2030-12-31">
+</div>
+
+<div>
+  <label for="date_to" width="70px" class="date_choose_label">Дата по:</label>
+  <input type="date" id="date_to" name="filter[date-to]" value="<%= Date.today.strftime('%Y-%m-%d') %>">
+</div>

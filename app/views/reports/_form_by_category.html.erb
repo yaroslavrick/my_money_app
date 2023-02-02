@@ -1,12 +1,12 @@
 <%= form_with url: "/reports/create_report_by_category", method: :get do |f| %>
-  <div>
+  <div class="mb-3">
     <p>Категорія</p>
     <%= select("operation", "category_id", Category.pluck(:name, :id),
                {:prompt => 'Категорія'}) %>
   </div>
 
   <div>
-    <button type="submit" class="reset-button btn btn btn-info"> <%= link_to "Очистити", reports_create_report_by_category_path, {:style=>'', :class => "button-reset"} %></button>
+    <button type="reset" class="reset-button btn btn btn-info"> <%= link_to "Очистити", reports_create_report_by_category_path, {:style=>'', :class => "button-reset"} %></button>
     <%= f.submit "Згенерувати", formaction: reports_report_by_category_path, :class => 'btn btn-primary' %>
   </div>
 <% end %>

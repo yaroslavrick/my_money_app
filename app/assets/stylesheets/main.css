@@ -1,0 +1,9 @@
+label.date_choose_label {
+    width: 70px;
+    display:block;
+    float:left
+}
+
+input#date_from, input#date_to {
+    width: 116px;
+}
