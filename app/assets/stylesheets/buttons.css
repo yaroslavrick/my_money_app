@@ -1,8 +1,9 @@
 .button-reset {
-    text-decoration: none; color: black
+    text-decoration: none;
+    color: black;
 }
 
-a.button-reset:hover,
-a.button-reset:active {
-    cursor: default;
-}
+/*a.button-reset:hover,*/
+/*a.button-reset:active {*/
+/*    cursor: default;*/
+/*}*/
