@@ -1,3 +1,9 @@
+#### TODO:
+- [x] Add paginator([Kaminari](https://github.com/kaminari/kaminari))
+- [x] Add canvas to reports results graphics ([ChartJS](https://www.chartjs.org/), [Chartkick](https://chartkick.com/))
+- [x] Add `yurkovskiy` to collaborators
+- [ ] Add minitests
+
 ## My steps of doing task:
 
 `rails new finance_app`  
@@ -151,12 +157,7 @@ To run all the migrations, use : rake db:drop db:create db:migrate
 Or rake db:migrate:reset=> rake db:drop db:create db:migrate
 ```
 
-TODO:
-1. Add paginator([Kaminari](https://github.com/kaminari/kaminari))
-2. Add canvas to reports results graphics ([ChartJS](https://www.chartjs.org/), [Chartkick](https://chartkick.com/)) 
-3. Add `yurkovskiy` to collaborators 
-
-### Adding Pagination (kaminari):
+### Adding Pagination ([Kaminari](https://github.com/kaminari/kaminari)):
 
 in `Gemfile`:
 
