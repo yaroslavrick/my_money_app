@@ -8,14 +8,16 @@
 
 require 'ffaker'
 # Generating Categories:
-categ1 = Category.create(name: "phones", description: "cell and mobile phones")
-categ2 = Category.create(name: "laptops", description: "small computers")
-
+# categ1 = Category.create(name: "phones", description: "cell and mobile phones")
+# categ2 = Category.create(name: "laptops", description: "small computers")
+10.times do
+  Category.create(name: FFaker::Product.product_name, description: FFaker::Lorem.sentence(1))
+end
 # Generating Operations:
 100.times do
   Operation.create(amount: rand(5.0..2000.0),
                    odate: (Date.today - rand(90)),
-                   description: FFaker::Lorem.word,
+                   description: FFaker::Product.product,
                    category_id: rand(1..Category.all.count)
                    )
 end
