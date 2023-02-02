@@ -1,32 +1,6 @@
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
-
-<div class="container">
-  <canvas id="myChart" height="500px" width="1140px" style="display: block; box-sizing: border-box; height: 500px; width: 1140px;"></canvas>
+<div style="text-align: center">
+  <h1>Витрати по даті з TODO по TODO <%= @category %></h1>
 </div>
 
-<script>
-    const ctx = document.getElementById('myChart');
+<%= render 'reports/chart' %>
 
-    const data = {
-        labels: <%= raw @dates %>,
-        datasets:[{
-            label:'Витрати по датам',
-            data: <%= @amounts %>,
-            fill: false,
-            borderColor: 'rgb(75, 192, 192)',
-            tension: 0.1
-        }]
-    }
-
-    const config = {
-        type: 'line',
-        data: data,
-        options: {
-            responsive: true
-        },
-        plugins: []
-    }
-
-    new Chart(ctx, config);
-</script>
