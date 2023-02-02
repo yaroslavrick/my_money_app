@@ -2,6 +2,12 @@ class ReportsController < ApplicationController
   def index
   end
 
+  def create_report_by_dates
+  end
+
+  def create_report_by_category
+  end
+
   def report_by_category
     @operations = Operation.where("category_id = ?", params["operation"]["category_id"]) unless params["operation"]["category_id"].empty?
     # @operations = Operation.where("category_id = :category", { category: params["operation"]["category_id"]})
