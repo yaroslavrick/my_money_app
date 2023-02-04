@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
 #
@@ -16,8 +18,7 @@ end
 # Generating Operations:
 100.times do
   Operation.create(amount: rand(5.0..2000.0),
-                   odate: (Date.today - rand(90)),
+                   odate: (Time.zone.today - rand(90)),
                    description: FFaker::Product.product,
-                   category_id: rand(1..Category.all.count)
-                   )
+                   category_id: rand(1..Category.all.count))
 end

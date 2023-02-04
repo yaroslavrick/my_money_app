@@ -6,26 +6,26 @@
 
 ## My steps of doing task:
 
-`rails new finance_app`  
+`rails new finance_app`
 `cd finance_app`
 
-`rails g scaffold Category name:string description:string`  
+`rails g scaffold Category name:string description:string`
 `rails db:migrate`
 
-`rails g scaffold Operation amount:decimal odate:datetime description:string category:references`  
+`rails g scaffold Operation amount:decimal odate:datetime description:string category:references`
 `rails db:migrate`
 
 в файлі `app/models/category.rb`
 
 ```ruby
     # Вказую у множині, так Rails зрзуміє, що в Category може бути багато Operations
-    has_many :operations
+has_many :operations
 ```
 
 в файлі `app/models/operation.rb`
 
 ```ruby
-    belongs_to :category
+belongs_to :category
 ```
 
 ### Adding validations (module 18):
@@ -48,12 +48,12 @@
 in `app/models/category`:
 
 ```ruby
-  validates :name, presence: true
+validates :name, presence: true
   # Назва категорії має бути унікальною (не може бути двох категорій з
   #    однаковими назвами)
-  validates :name, uniqueness: true
+validates :name, uniqueness: true
   # Опис категорії є обов’язковою властивістю (не nil)
-  validates :description, presence: true
+validates :description, presence: true
 ```
 
 in `app/models/operation`:
@@ -61,11 +61,11 @@ in `app/models/operation`:
 ```ruby
   #   Сума операції – обов’язкова властивість, а також значення – число, яке
   #    більше за 0
-  validates :amount, presence: true, numericality: { greater_than: 0 }
+validates :amount, presence: true, numericality: { greater_than: 0 }
   #   Дата операції – обов’язкова властивість
-  validates :odate, presence: true
+validates :odate, presence: true
   #   Короткий опис – обов’язкова властивість
-  validates :description, presence: true
+validates :description, presence: true
 ```
 
 ## Завдання на проєкт (Модуль 19-20)
@@ -89,7 +89,7 @@ rails g controller Main index
 in `config/routes.rb`:
 
 ```ruby
-root "main#index"
+root 'main#index'
 ```
 
 Для роботи зі звітами на стороні клієнта необхідно:
@@ -134,8 +134,8 @@ rails g controller Reports index report_by_category report_by_dates
 in `db/migrate/20230116103618_create_operations.rb`:
 
 ```ruby
-   t.belongs_to :activity, index: true, foreign_key: true
-   t.belongs_to :category, index: true, foreign_key: true
+t.belongs_to :activity, index: true, foreign_key: true
+t.belongs_to :category, index: true, foreign_key: true
 ```
 
 `rails db:migrate`
@@ -171,27 +171,27 @@ rails g kaminari:config
 in `/config/initializers/kaminari_config.rb`:
 
 ```ruby
-  config.default_per_page = 5
+config.default_per_page = 5
 ```
 
 in `app/models/operation`:
 
 ```ruby
-  paginates_per 5
+paginates_per 5
 ```
 
 in `app/controllers/operations`:
 
 ```ruby
-  def index
-    @operations =Post.page params[:page]
-  end
+def index
+  @operations = Post.page params[:page]
+end
 ```
 
 in `app/views/main/index.html.erb`:
 
 ```ruby
-  <%= paginate @operations %>
+paginate @operations
 ```
 
 `rails g kaminari:views`
@@ -208,33 +208,33 @@ or
 in `test/models/category_test.rb`:
 
 ```ruby
-   test"return false if name is missed" do
-      new_category = Category.new(description: "Test description")
-      assert_not(new_category.valid?)
-   end
+test 'return false if name is missed' do
+  new_category = Category.new(description: 'Test description')
+  assert_not(new_category.valid?)
+end
 
-   test "return true if everything is okay" do
-      new_category = Category.new(name: "Test name", description: "Test description")
-      assert(new_category.valid?)
-   end
-   
-   test "saving and gathering" do
-      new_category = Category.new(name: "Test name", description: "Test description")
-      new_category.save
-      new_cat = Category.find_by(name: "Test name")
-      assert_equal("Test description", new_cat.description)
-   end
-   
-   test "testing fixtures/categories. Check the '1st_Category' from database" do
-      category_first = Category.find_by(name: 'TestName')
-      assert_equal('MyDescription', category_first.description)
-   end
+test 'return true if everything is okay' do
+  new_category = Category.new(name: 'Test name', description: 'Test description')
+  assert(new_category.valid?)
+end
+
+test 'saving and gathering' do
+  new_category = Category.new(name: 'Test name', description: 'Test description')
+  new_category.save
+  new_cat = Category.find_by(name: 'Test name')
+  assert_equal('Test description', new_cat.description)
+end
+
+test "testing fixtures/categories. Check the '1st_Category' from database" do
+  category_first = Category.find_by(name: 'TestName')
+  assert_equal('MyDescription', category_first.description)
+end
 ```
 to run that particular test:
 
 `rails test test/models/category_test.rb`
 
-Якшо були внесені зміни в сценарії міграції, потрібно обов'язково 
+Якшо були внесені зміни в сценарії міграції, потрібно обов'язково
 перебудувати тестову базу даних:
 
 `rails db:test:prepare`

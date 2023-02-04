@@ -31,3 +31,9 @@
 
 en:
   hello: "Hello world"
+  category_was_successfully_created: "Category was successfully created."
+  category_was_successfully_updated: "Category was successfully updated."
+  category_was_successfully_destroyed: "Category was successfully destroyed."
+  operation_was_successfully_created: "Operation was successfully created."
+  operation_was_successfully_updated: "Operation was successfully updated."
+  operation_was_successfully_destroyed: "Operation was successfully destroyed."

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Rails.application.routes.draw do
   get 'reports/report_by_category', to: 'reports#report_by_category'
   get 'reports/report_by_dates', to: 'reports#report_by_dates'

@@ -25,6 +25,7 @@ Style/RegexpLiteral:
 Metrics/BlockLength:
   Exclude:
     - spec/**/*
+    - test/**/*
 
 # Layout ----------------------------------------------------------------------
 
