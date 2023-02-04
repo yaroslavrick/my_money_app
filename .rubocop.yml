@@ -1,0 +1,60 @@
+require:
+  - rubocop-md
+  - rubocop-rake
+  - rubocop-performance
+  - rubocop-rails
+
+AllCops:
+  TargetRubyVersion: 3.1.3
+  NewCops: enable
+
+Lint/MissingSuper:
+  Enabled: false
+
+# Style -----------------------------------------------------------------------
+
+Style/Documentation:
+  Enabled: false
+
+Style/ParallelAssignment:
+  Enabled: false
+
+Style/RegexpLiteral:
+  Enabled: false
+
+Metrics/BlockLength:
+  Exclude:
+    - spec/**/*
+
+# Layout ----------------------------------------------------------------------
+
+Layout/LineLength:
+  Max: 120
+
+Layout/MultilineMethodCallIndentation:
+  EnforcedStyle: indented
+
+Layout/FirstArrayElementIndentation:
+  EnforcedStyle: consistent
+
+Layout/ClassStructure:
+  Enabled: true
+  Categories:
+    module_inclusion:
+      - include
+      - prepend
+      - extend
+  ExpectedOrder:
+    - module_inclusion
+    - constants
+    - public_class_methods
+    - initializer
+    - public_methods
+    - protected_methods
+    - private_methods
+# rubocop-md
+Markdown:
+  # Whether to run RuboCop against non-valid snippets
+  WarnInvalid: true
+  # Whether to lint codeblocks without code attributes
+  Autodetect: true
