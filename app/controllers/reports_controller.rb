@@ -29,7 +29,6 @@ class ReportsController < ApplicationController
   end
 
   def paginate_by_category
-    binding.pry
     @operations_paginated = @operations.page params[:page]
   end
 
