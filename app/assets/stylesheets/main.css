@@ -7,3 +7,19 @@ label.date_choose_label {
 input#date_from, input#date_to {
     width: 116px;
 }
+
+table.report-table
+{
+    border-collapse:separate;
+    border-spacing:15px 5px;
+}
+
+tr:nth-child(odd) {
+    background-color: #ddeff3;
+}
+tr:nth-child(even) {
+    background-color: #f1ede4;
+}
+tfoot {
+    background-color: #f0f3d9;
+}

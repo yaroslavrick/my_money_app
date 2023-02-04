@@ -1,9 +1,33 @@
 <div style="text-align: center">
-  <h1>Витрати по даті з <%= @dates.first %> по <%= @dates.last %> <%= @category %></h1>
+  <h1>Витрати по даті з <%= params["filter"]["date-from"] %> по <%= params["filter"]["date-to"] %> <%= @category %></h1>
 </div>
 
-<%= render 'reports/chart' %>
-
-<%= render partial: "shared/operations_list" %>
+<div class="d-flex mb-20">
+  <div class="table">
+    <table class="report-table">
+      <thead>
+        <tr>
+          <th class="fw-bold"><%= link_to "Категорія", :sort => "category_name", params: request.query_parameters %> </th>
+          <th class="fw-bold"><%= link_to "Сума", :sort => "total_amounts", params: request.query_parameters %> </th>
+        </tr>
+      </thead>
+      <tbody>
+      <% @categories_and_total_amount.each do |name, amount| %>
+        <tr>
+          <td><%= name %></td>
+          <td><%= amount.round(2) %></td><td>
+        </tr>
+      <% end %>
+      </tbody>
+      <tfoot>
+        <tr>
+          <td class="fw-bold">Всього:</td>
+          <td class="fw-bold"><%= @total_sum %></td>
+        </tr>
+      </tfoot>
+    </table>
+  </div>
+  <%= render 'shared/pie_chart' %>
+</div>
 
 <%= paginate @operations_paginated %>
