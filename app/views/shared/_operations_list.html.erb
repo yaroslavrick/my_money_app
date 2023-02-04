@@ -1,0 +1,8 @@
+<div id="operations" class="mt-1">
+  <% @operations.each do |operation| %>
+    <%= render operation %>
+    <p>
+      <%= link_to "Show this operation", operation %>
+    </p>
+  <% end %>
+</div>
