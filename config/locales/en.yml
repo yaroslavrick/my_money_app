@@ -30,7 +30,8 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  en: English
+  ua: Ukrainian
   category_was_successfully_created: "Category was successfully created."
   category_was_successfully_updated: "Category was successfully updated."
   category_was_successfully_destroyed: "Category was successfully destroyed."
