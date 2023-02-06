@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Internationalization
   extend ActiveSupport::Concern
 
@@ -5,6 +7,7 @@ module Internationalization
     around_action :switch_locale
 
     private
+
     def switch_locale(&)
       locale = locale_from_url || locale_from_headers || I18n.default_locale
       response.set_header('Content-Language', locale)
@@ -24,6 +27,7 @@ module Internationalization
       header = request.env['HTTP_ACCEPT_LANGUAGE']
 
       return if header.nil?
+
       reading_from_headers
       locales = header.gsub(/\s+/, '').split(',').map do |language_tag|
         locale, quality = language_tag.split(/;q=/i)
@@ -45,9 +49,7 @@ module Internationalization
       end
     end
 
-    def reading_from_headers
-
-    end
+    def reading_from_headers; end
 
     def default_url_options
       { locale: I18n.locale }
