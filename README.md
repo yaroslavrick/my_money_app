@@ -2,6 +2,7 @@
 - [x] Add paginator([Kaminari](https://github.com/kaminari/kaminari))
 - [x] Add canvas to reports results graphics ([ChartJS](https://www.chartjs.org/), [Chartkick](https://chartkick.com/))
 - [x] Add `yurkovskiy` to collaborators
+- [ ] Add `nromanen` to collaborators
 - [ ] Add minitests
 
 ## My steps of doing task:

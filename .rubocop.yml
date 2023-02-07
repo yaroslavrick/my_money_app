@@ -7,6 +7,9 @@ require:
 AllCops:
   TargetRubyVersion: 3.1.3
   NewCops: enable
+  Exclude:
+    - './app/concerns/internationalization.rb'
+    - './bin/bundle'
 
 Lint/MissingSuper:
   Enabled: false
