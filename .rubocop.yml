@@ -11,6 +11,7 @@ AllCops:
   Exclude:
     - './app/concerns/internationalization.rb'
     - './bin/bundle'
+    - 'vendor/bundle/**/*'
 
 Lint/MissingSuper:
   Enabled: false
