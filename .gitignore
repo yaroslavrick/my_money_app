@@ -36,6 +36,7 @@
 
 .idea
 /.idea/*
+.idea/finance_app.iml
 
 .env
 coverage

@@ -43,17 +43,27 @@ class ReportsController < ApplicationController
   end
 
   def group_by_date_and_summarize
-    @operations_grouped = @operations.group("strftime('%Y-%m-%d', odate)").sum('amount')
+    # @operations_grouped = @operations.group("strftime('%Y-%m-%d', odate)").sum('amount')
+    @operations_grouped = @operations.group('odate').sum('amount')
   end
 
   def data_for_chart_by_category
-    @dates = @operations_grouped.pluck(0)
+    group_dates_for_chart
+    group_amounts_for_chart
+  end
+
+  def group_dates_for_chart
+    @dates = @operations_grouped.pluck(0).map { |date| date.strftime('%Y-%m-%d') }
+  end
+
+  def group_amounts_for_chart
     @amounts = @operations_grouped.pluck(1)
   end
 
   def find_by_date
     @operations = Operation.find_operations_by_date(params['filter']['date-from'], params['filter']['date-to'])
     # @operations = find_operations_by_date(params['filter']['date-from'], params['filter']['date-to'])
+    @operations = @operations.group('category_id', 'odate')
   end
 
   def group_by_id
@@ -61,8 +71,14 @@ class ReportsController < ApplicationController
   end
 
   def categories_and_total_amount
-    @categories_and_total_amount = @categories_and_total_amount.sum('amount').transform_keys do |key|
-      Category.find(key).name
+    # @categories_and_total_amount = @categories_and_total_amount.sum('amount').transform_keys do |key|
+    #   Category.find(key).name
+    # end
+    @categories_and_total_amount = @categories_and_total_amount.group('category_id',
+                                                                      'odate').sum('amount').transform_keys do |key|
+      category = Category.find(key[0])
+      date = key[1].strftime('%Y-%m-%d')
+      "#{category.name} (#{date})"
     end
   end
 

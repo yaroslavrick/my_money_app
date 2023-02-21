@@ -14,7 +14,7 @@ module Internationalization
       I18n.with_locale(locale, &)
     end
 
-    # Aapted from https://github.com/rack/rack-contrib/blob/main/lib/rack/contrib/locale.rb
+    # Adapted from https://github.com/rack/rack-contrib/blob/main/lib/rack/contrib/locale.rb
     def locale_from_url
       locale = params[:locale]
 
