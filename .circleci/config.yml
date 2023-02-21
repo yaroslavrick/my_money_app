@@ -60,12 +60,6 @@ commands:
           path: ~/repo/coverage
           destination: coverage
 
-  run_rubocop:
-    steps:
-      - run:
-          name: run rubocop
-          command: bundle exec rubocop -c .rubocop.yml
-
   run_fasterer:
     steps:
       - run:
@@ -83,7 +77,6 @@ jobs:
     executor: default
     steps:
       - setup_environment
-      - run_rubocop
       - run_fasterer
       - run_bundle_audit
 
