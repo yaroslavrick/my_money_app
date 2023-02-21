@@ -1,25 +1,25 @@
 label.date_choose_label {
-    width: 70px;
-    display:block;
-    float:left
+  width: 70px;
+  display: block;
+  float: left;
 }
 
-input#date_from, input#date_to {
-    width: 116px;
+input#date_from,
+input#date_to {
+  width: 116px;
 }
 
-table.report-table
-{
-    border-collapse:separate;
-    border-spacing:15px 5px;
+table.report-table {
+  border-collapse: separate;
+  border-spacing: 15px 5px;
 }
 
-tr:nth-child(odd) {
+/* tr:nth-child(odd) {
     background-color: #ddeff3;
 }
 tr:nth-child(even) {
     background-color: #f1ede4;
-}
+} */
 tfoot {
-    background-color: #f0f3d9;
+  background-color: #f0f3d9;
 }

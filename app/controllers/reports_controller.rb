@@ -27,6 +27,7 @@ class ReportsController < ApplicationController
 
   def find_by_category
     @operations = Operation.find_operation_by_category(params['operation']['category_id'])
+    # @operations = find_operation_by_category(params['operation']['category_id'])
   end
 
   def paginate_by_category
@@ -52,6 +53,7 @@ class ReportsController < ApplicationController
 
   def find_by_date
     @operations = Operation.find_operations_by_date(params['filter']['date-from'], params['filter']['date-to'])
+    # @operations = find_operations_by_date(params['filter']['date-from'], params['filter']['date-to'])
   end
 
   def group_by_id
