@@ -22,7 +22,6 @@ gem 'rails', '~> 7.0.4'
 gem 'rails-i18n', '~> 7.0.0'
 gem 'sassc-rails', '~> 2.1.2'
 gem 'sprockets-rails', '~> 3.4.2'
-# gem 'sqlite3', '~> 1.4'
 gem 'stimulus-rails', '~> 1.2.1'
 gem 'turbo-rails', '~> 1.3.3'
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
@@ -33,7 +32,6 @@ group :development, :test do
   gem 'debug', '~> 1.7.1', platforms: %i[mri mingw x64_mingw]
   gem 'factory_bot_rails', '~> 6.2.0'
   gem 'fasterer', '~> 0.10.0'
-  gem 'panolint', '~>  0.1.6'
   gem 'pry', '~> 0.14.1'
   gem 'pry-rails', '~> 0.3.9'
   gem 'rails_best_practices', '~> 1.23.2'
@@ -53,13 +51,13 @@ group :development do
 end
 
 group :test do
-  gem 'capybara'
+  # gem 'capybara'
   gem 'database_cleaner', '~> 2.0.1'
-  gem 'selenium-webdriver'
+  # gem 'selenium-webdriver'
   gem 'shoulda-matchers', '~> 5.1.0'
   gem 'simplecov', '~> 0.22.0'
   gem 'simplecov-html', '~> 0.12.3'
   gem 'simplecov-lcov', '~> 0.8.0'
   gem 'simplecov-shields-badge', '~> 0.1.0'
-  gem 'webdrivers'
+  # gem 'webdrivers'
 end

@@ -7,3 +7,12 @@ ua:
   operation_was_successfully_created: "Operation was successfully created."
   operation_was_successfully_updated: "Operation was successfully updated."
   operation_was_successfully_destroyed: "Operation was successfully destroyed."
+  main:
+    index:
+      all_operations: Усі операції
+      id: id
+      description: Опис
+      amount: Всього
+      date: Дата
+      category_id: id категорії
+      category_name: Ім'я категоії

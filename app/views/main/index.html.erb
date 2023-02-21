@@ -1,14 +1,14 @@
-<h1>Усі операції</h1>
+<h1><%= t('.all_operations') %></h1>
 <hr>
 
 <% @operations.each do |operation| %>
   <div>
-    <p><b>id:</b> <%= operation.id %></p>
-    <p><b>Description:</b> <%= operation.description %></p>
-    <p><b>Amount:</b> <%= operation.amount %></p>
-    <p><b>Date:</b> <%= operation.odate %></p>
-    <p><b>Category id:</b> <%= operation.category_id %></p>
-    <p><b>Category name:</b> <%= @all_categories.find(operation.category_id).name %></p>
+    <p><b><%= "#{t('.id')}:" %></b> <%= operation.id %></p>
+    <p><b><%= "#{t('.description')}:" %></b> <%= operation.description %></p>
+    <p><b><%= "#{t('.amount')}:" %></b> <%= operation.amount %></p>
+    <p><b><%= "#{t('.date')}:" %></b> <%= operation.odate %></p>
+    <p><b><%= "#{t('.category_id')}:" %></b> <%= operation.category_id %></p>
+    <p><b><%= "#{t('.category_name')}:" %></b> <%= @all_categories.find(operation.category_id).name %></p>
   </div>
   <hr>
 <% end %>
