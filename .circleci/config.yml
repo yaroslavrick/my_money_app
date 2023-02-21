@@ -64,7 +64,7 @@ commands:
     steps:
       - run:
           name: run rubocop
-          command: bundle exec rubocop
+          command: bundle exec rubocop -c .rubocop.yml
 
   run_fasterer:
     steps:
