@@ -10,6 +10,7 @@ class ReportsController < ApplicationController
     @dates = report[:dates]
     @amounts = report[:amounts]
     @operations = report[:operations]
+    @category_name = report[:category_name]
     @operations_paginated = @operations.page params[:page]
   end
 

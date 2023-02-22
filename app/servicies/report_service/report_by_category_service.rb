@@ -18,7 +18,7 @@ module ReportService
     end
 
     def find_category_name
-      @category = Category.find_category_name_by_params(@params['operation']['category_id'])
+      @category_name = Category.find_category_name_by_params(@params['operation']['category_id'])
     end
 
     def group_by_date_and_summarize
@@ -43,7 +43,8 @@ module ReportService
       {
         amounts: @amounts,
         dates: @dates,
-        operations: @operations
+        operations: @operations,
+        category_name: @category_name
       }
     end
   end
