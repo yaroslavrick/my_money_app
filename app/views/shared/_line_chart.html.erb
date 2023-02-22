@@ -10,7 +10,7 @@
     const data = {
         labels: <%= raw @dates %>,
         datasets:[{
-            label:'Гроші/Дата',
+            label:'<%= t('.money_date') %>',
             data: <%= @amounts %>,
             fill: false,
             borderColor: 'rgb(75, 192, 192)',

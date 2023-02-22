@@ -1,0 +1,110 @@
+uk:
+  en: English
+  uk: Українська
+  category_was_successfully_created: "Category was successfully created."
+  category_was_successfully_updated: "Category was successfully updated."
+  category_was_successfully_destroyed: "Category was successfully destroyed."
+  operation_was_successfully_created: "Operation was successfully created."
+  operation_was_successfully_updated: "Operation was successfully updated."
+  operation_was_successfully_destroyed: "Operation was successfully destroyed."
+  activerecord:
+    models:
+      category: Категорія
+      operation: Операція
+    attributes:
+      category:
+        name: ім'я
+        description: опис
+      operation:
+        amount: обсяг
+        odate: дата_операції
+        description: опис
+        category_id: id категорії
+  main:
+    index:
+      all_operations: Усі операції
+      id: id
+      description: Опис
+      amount: Обсяг
+      date: Дата
+      category_id: id категорії
+      category_name: Ім'я категоії
+  categories:
+    category:
+      name: Назва
+      description: Опис
+    form:
+      prohibited_this_category: Заборонено зберігання цієї категорії
+    edit:
+      editing_category: Редагування категорії
+      show_this_category: Показати цю категорію
+      back_to_categories: Повернутися до категорій
+    index:
+      categories: Категорії
+      new_category: Нова категорія
+      show_this_category: Показати цю категорію
+    new:
+      new_category: Нова категорія
+    show:
+      edit_category: Редагувати цю категорію
+      destroy_category: Видалити цю категорію
+  operations:
+    form:
+      submit: Створити операцію
+      prohibited_this_operation: Заборонено зберігання цієї операції
+    operation:
+      amount: Сума
+      odate: Дата
+      description: Опис
+      category: Категорія
+    edit:
+      editing_operation: Редагування операції
+      show_this_operation: Показати цю операцію
+    index:
+      operations: Операції
+      new_operation: Нова операція
+    new:
+      new_operation: Нова операція
+    show:
+      edit_this_operation: Редагувати цю операцію
+      destroy_this_operation: Видалити цю операцію
+  reports:
+    buttons_accept:
+      clear: Очистити
+      generate: Створити
+    date_choose:
+      date_from: Дата початку
+      date_to: Дата кінця
+    form_by_category:
+      category: Категорія
+    form_by_date:
+    create_report_by_category:
+      generator_by_category: Генератор звіту по категорії
+    create_report_by_dates:
+      generator_by_date: Генератор звіту за датою
+    report_by_category:
+      expenses_by_category: Витрати за категорією
+    report_by_dates:
+      expenses_by_date_from: Витрати з дати
+      to: по
+      category: Категорія
+      amount: Сума
+      total: Всього
+  shared:
+    back_to_categories: Повернутися до категорій
+    back_to_operations: Повернутися до операцій
+    header:
+      title: МЕНЕДЖЕР ОСОБИСТИХ ФІНАНСІВ
+      categories: Категорії
+      operations: Операції
+      reports: Звіти
+      by_dates: за датою
+      by_category: за категорією
+    line_chart:
+      money_date: Гроші/Дата
+    operations_list:
+      show_this_operation: Показати цю категорію
+    pie_chart:
+      expenses_by_period: Розподіл витрат за період
+
+

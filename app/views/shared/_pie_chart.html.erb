@@ -7,12 +7,10 @@
 <script>
     const ctx = document.getElementById('myChart');
 
-
-
     const data = {
         labels: <%= raw @categories_names %>,
         datasets: [{
-            label: 'Розподіл витрат за період',
+            label: '<%= t('.expenses_by_period') %>',
             data: <%= @total_amounts %>,
             backgroundColor: [
                 'rgb(255, 99, 132)',

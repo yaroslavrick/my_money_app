@@ -1,7 +1,7 @@
 <%= form_with url: "/reports/create_report_by_category", method: :get do |f| %>
   <div class="mb-3">
     <%= select("operation", "category_id", Category.pluck(:name, :id),
-               {:prompt => 'Категорія'}) %>
+               {:prompt => t('.category')}) %>
   </div>
 
   <div class="mt-2">

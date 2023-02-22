@@ -1,5 +1,5 @@
 <div style="text-align: center">
-  <h1>Витрати по даті з <%= params["filter"]["date-from"] %> по <%= params["filter"]["date-to"] %> <%= @category %></h1>
+  <h1><%= t('.expenses_by_date_from') %> <%= params["filter"]["date-from"] %> <%= t('.to') %> <%= params["filter"]["date-to"] %> <%= @category %></h1>
 </div>
 
 <div class="d-flex mb-20">
@@ -7,8 +7,8 @@
     <table class="report-table table table-striped">
       <thead>
         <tr>
-          <th class="fw-bold"><%= link_to "Категорія", :sort => "category_name", params: request.query_parameters %> </th>
-          <th class="fw-bold"><%= link_to "Сума", :sort => "total_amounts", params: request.query_parameters %> </th>
+          <th class="fw-bold"><%= link_to t('.category'), :sort => "category_name", params: request.query_parameters %> </th>
+          <th class="fw-bold"><%= link_to t('.amount'), :sort => "total_amounts", params: request.query_parameters %> </th>
         </tr>
       </thead>
       <tbody>
@@ -21,7 +21,7 @@
       </tbody>
       <tfoot>
         <tr>
-          <td class="fw-bold">Всього:</td>
+          <td class="fw-bold"><%= t('.total') %>:</td>
           <td class="fw-bold"><%= @total_sum %></td>
         </tr>
       </tfoot>
