@@ -22,18 +22,18 @@ module ReportService
     end
 
     def group_by_category
-      @categories_and_total_amount = @operations.group('category_id')
+      @categories_and_total_amount = @operations.group('category_id', 'odate').sum('amount')
+    end
+
+    def filter_by_category
+      category_id = @params['filter']['category'].to_i
+      @categories_and_total_amount = @categories_and_total_amount.where(category_id:)
     end
 
     def categories_and_total_amount
-      # @categories_and_total_amount = @categories_and_total_amount.sum('amount').transform_keys do |key|
-      #   Category.find(key).name
-      # end
-      @categories_and_total_amount = @categories_and_total_amount.group('category_id',
-                                                                        'odate').sum('amount').transform_keys do |key|
+      @categories_and_total_amount = @categories_and_total_amount.transform_keys do |key|
         category = Category.find(key[0])
-        date = key[1].strftime('%Y-%m-%d')
-        "#{category.name} (#{date})"
+        category.name.to_s
       end
     end
 
@@ -68,7 +68,8 @@ module ReportService
         total_sum: @total_sum,
         categories_and_total_amount: @categories_and_total_amount,
         categories_names: @categories_names,
-        total_amounts: @total_amounts
+        total_amounts: @total_amounts,
+        dates_and_total_amount: @dates_and_total_amount
       }
     end
   end
