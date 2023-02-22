@@ -15,8 +15,8 @@ class ReportsController < ApplicationController
 
   def report_by_dates
     find_by_date
-    group_by_id
-    paginate_by_date
+    group_by_category
+    # paginate_by_date
     categories_and_total_amount
     data_for_chart_by_dates
     find_total_sum
@@ -35,7 +35,7 @@ class ReportsController < ApplicationController
   end
 
   def paginate_by_date
-    @operations_paginated = @categories_and_total_amount.page params[:page]
+    @operations_paginated = @categories_and_total_amount.page(params[:page]).per(10)
   end
 
   def find_category_name
@@ -66,7 +66,7 @@ class ReportsController < ApplicationController
     @operations = @operations.group('category_id', 'odate')
   end
 
-  def group_by_id
+  def group_by_category
     @categories_and_total_amount = @operations.group('category_id')
   end
 
