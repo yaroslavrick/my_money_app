@@ -1,11 +1,10 @@
 # frozen_string_literal: true
 
 module ReportService
-  class ReportByDateService < CreateReportService
+  class ReportForPeriodService < CreateReportService
     def call
       find_by_date
       group_by_category
-      # paginate_by_date
       categories_and_total_amount
       data_for_chart_by_dates
       find_total_sum
@@ -28,13 +27,6 @@ module ReportService
     def filter_by_category
       category_id = @params['filter']['category'].to_i
       @categories_and_total_amount = @categories_and_total_amount.where(category_id:)
-    end
-
-    def categories_and_total_amount
-      @categories_and_total_amount = @categories_and_total_amount.transform_keys do |key|
-        category = Category.find(key[0])
-        category.name.to_s
-      end
     end
 
     def data_for_chart_by_dates
@@ -68,8 +60,8 @@ module ReportService
         total_sum: @total_sum,
         categories_and_total_amount: @categories_and_total_amount,
         categories_names: @categories_names,
-        total_amounts: @total_amounts,
-        dates_and_total_amount: @dates_and_total_amount
+        total_amounts: @total_amounts
+        # dates_and_total_amount: @dates_and_total_amount
       }
     end
   end
