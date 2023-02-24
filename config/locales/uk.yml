@@ -78,6 +78,8 @@ uk:
     form_by_category:
       category: Категорія
     form_by_date:
+      by_categories: По категоріям
+      by_dates: По датам
     create_report_by_category:
       generator_by_category: Генератор звіту по категорії
     create_report_by_dates:
@@ -88,6 +90,7 @@ uk:
       expenses_by_date_from: Витрати з дати
       to: по
       category: Категорія
+      date: Дата
       amount: Сума
       total: Всього
   shared:

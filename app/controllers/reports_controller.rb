@@ -27,6 +27,8 @@ class ReportsController < ApplicationController
     find_total_amounts
     find_total_sum
     find_categories_and_amount
+    sort
+    paginate_data
   end
 
   def create_report_data_by_category
@@ -50,7 +52,15 @@ class ReportsController < ApplicationController
   end
 
   def find_categories_and_amount
-    @categories_and_total_amount = Kaminari.paginate_array(@report[:categories_and_total_amount].to_a)
+    @categories_and_total_amount = @report[:categories_and_total_amount]
+  end
+
+  def sort
+    @categories_and_total_amount = SortService::Sort.new(params: params[:sort], data: @categories_and_total_amount).call
+  end
+
+  def paginate_data
+    @categories_and_total_amount = Kaminari.paginate_array(@categories_and_total_amount.to_a)
       .page(params[:page]).per(5)
   end
 
