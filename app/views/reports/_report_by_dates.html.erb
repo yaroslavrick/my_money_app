@@ -7,8 +7,12 @@
     <table class="report-table table table-striped">
       <thead>
         <tr>
-          <th class="fw-bold"><%= link_to t('.category'), :sort => "category_name", params: request.query_parameters %> </th>
-          <th class="fw-bold"><%= link_to t('.amount'), :sort => "total_amounts", params: request.query_parameters %> </th>
+          <% if report_type == "dates" %>
+            <th class="fw-bold"><%= link_to t('.date'), url_for(params.merge(sort: 'date'))  %> </th>
+          <% else %>
+            <th class="fw-bold"><%= link_to t('.category'), url_for(params.merge(sort: 'category_name')) %> </th>
+          <% end %>
+          <th class="fw-bold"><%= link_to t('.amount'), url_for(params.merge(sort: 'total_amounts')) %> </th>
         </tr>
       </thead>
       <tbody>

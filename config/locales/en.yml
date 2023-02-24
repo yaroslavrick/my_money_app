@@ -78,6 +78,8 @@ en:
     form_by_category:
       category: Category
     form_by_date:
+      by_categories: By categories
+      by_dates: By dates
     create_report_by_category:
       generator_by_category: Generator of report by category
     create_report_by_dates:
@@ -88,6 +90,7 @@ en:
       expenses_by_date_from: Expenses by date from
       to: to
       category: Category
+      date: Date
       amount: Amount
       total: Total
   shared:
