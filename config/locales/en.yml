@@ -89,6 +89,7 @@ en:
     report_by_dates:
       expenses_by_date_from: Expenses by date from
       to: to
+      date: Date
       category: Category
       amount: Amount
       total: Total

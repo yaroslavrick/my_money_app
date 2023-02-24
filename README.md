@@ -1,245 +1,47 @@
-#### TODO:
-- [x] Add paginator([Kaminari](https://github.com/kaminari/kaminari))
-- [x] Add canvas to reports results graphics ([ChartJS](https://www.chartjs.org/), [Chartkick](https://chartkick.com/))
-- [x] Add `yurkovskiy` to collaborators
-- [ ] Add `nromanen` to collaborators
-- [ ] Add minitests
+# Personal finance manager
+[![Coverage](badge.svg)](https://github.com/yaroslavrick/finance_app)
 
-## My steps of doing task:
+### Requirements
 
-`rails new finance_app`
-`cd finance_app`
+- Ruby 3.1.2
+- Rails 7.0.4
 
-`rails g scaffold Category name:string description:string`
-`rails db:migrate`
-
-`rails g scaffold Operation amount:decimal odate:datetime description:string category:references`
-`rails db:migrate`
-
-в файлі `app/models/category.rb`
-
-```ruby
-    # Вказую у множині, так Rails зрзуміє, що в Category може бути багато Operations
-has_many :operations
-```
-
-в файлі `app/models/operation.rb`
-
-```ruby
-belongs_to :category
-```
-
-### Adding validations (module 18):
-
-Завдання цього модуля полягає в додаванні перевірок (валідації) на рівні моделей.
-
-1. Для сутності Category (моделі) додати наступні перевірки:
-   a. Назва категорії є обов’язковою властивістю і не може бути порожньою
-   b. Назва категорії має бути унікальною (не може бути двох категорій з
-   однаковими назвами)
-   c. Опис категорії є обов’язковою властивістю (не nil)
-2. Для сутності Operation додати наступні перевірки
-   a. Сума операції – обов’язкова властивість, а також значення – число, яке
-   більше за 0
-   b. Дата операції – обов’язкова властивість
-   c. Короткий опис – обов’язкова властивість
-
-#### steps:
-
-in `app/models/category`:
-
-```ruby
-validates :name, presence: true
-  # Назва категорії має бути унікальною (не може бути двох категорій з
-  #    однаковими назвами)
-validates :name, uniqueness: true
-  # Опис категорії є обов’язковою властивістю (не nil)
-validates :description, presence: true
-```
-
-in `app/models/operation`:
-
-```ruby
-  #   Сума операції – обов’язкова властивість, а також значення – число, яке
-  #    більше за 0
-validates :amount, presence: true, numericality: { greater_than: 0 }
-  #   Дата операції – обов’язкова властивість
-validates :odate, presence: true
-  #   Короткий опис – обов’язкова властивість
-validates :description, presence: true
-```
-
-## Завдання на проєкт (Модуль 19-20)
-
-Завдання цього модуля полягає в створенні методів для формування звітів, а також
-створення контролера для «головної сторінки»
-Для забезпечення функціонування головної сторінки необхідно:
-
-1. Створити контролер “Main” з action-методом index. При створені за допомогою
-   генератора автоматично буде також створено шаблон для View, а також запис в
-   параметрах маршрутизації config/routes.rb
-2. У файлі config/routes.rb додати запис про root-маршрут в наступному форматі
-   root “main#index”
-
-#### STEPS:
+#### 1. Clone the repository
 
 ```zsh
-rails g controller Main index
+https://github.com/yaroslavrick/finance_app
+cd finance_app
 ```
 
-in `config/routes.rb`:
-
-```ruby
-root 'main#index'
-```
-
-Для роботи зі звітами на стороні клієнта необхідно:
-
-1. Створити контролер “Reports” з action-методами index, report_by_category та
-   report_by_dates
-2. Найкраще створювати контролер за допомогою генератора, тим самим Rails
-   автоматично створить шаблони для View, а також згенерує маршрути
-3. Action-методи контролера Report мають наступне призначення
-   Метод
-   index
-   Призначення
-   Точка входу. Вивід форми генератора
-   звітів
-   report_by_category
-   Звіт по категоріям
-   report_by_dates
-   Звіт по датам
-4. Виклик action-методів report*by*\*\*\*\* потрібно забезпечити з форми генератора
-   звітів. Для цього потрібно у шаблоні (view) report/index.html.erb зробити дві
-   кнопки і прив’язати до них відповідні посилання (приблизний вигляд форми
-   можна знайти в загальному завданні на проєкт «Персональний менеджер
-   фінансів»)
-5. Щодо реалізації логіки роботи action-методів report*by*\*\*\*\*a. Всередині методів необхідно забезпечити звернення до моделі Operation
-   для отримання інформації з бази даних про витрати / доходи за деякий
-   період часу в розрізі категорій. Зрозуміло, що використання щось на
-   зразок @operations = Operation.all є надзвичайно небезпечним, тому що,
-   якщо операцій в базі даних, наприклад буде декілька тисяч – це
-   надзвичайно «великий» об’єм даних, які потрібно так чи інакше
-   відфільтрувати.
-   b. У файлі конфігурації маршрутів config/routes.rb прописати маршрути до
-   всіх action-методів контролера Reports
+#### 2. Copy the .env.example file.
 
 ```zsh
-rails g controller Reports index report_by_category report_by_dates
+cp .env.example .env
 ```
 
-`rails g model Activity atype:string`
-`rails g scaffold Operation amount:decimal odate:datetime description:string category:references activity:references`
-
-`rails db:rollback`
-in `db/migrate/20230116103618_create_operations.rb`:
-
-```ruby
-t.belongs_to :activity, index: true, foreign_key: true
-t.belongs_to :category, index: true, foreign_key: true
-```
-
-`rails db:migrate`
-
-To [reset db](https://stackoverflow.com/questions/20464924/rails-migration-does-not-change-schema-rb) if needed :
-```zsh
-rake db:reset => db:drop db:create db:schema:load db:seed
-
-rake db:reset
-rake db:drop
-rake db:create
-rake db:schema:load
-rake db:seed
-rake db:drop db:create db:migrate
-
-
-To run all the migrations, use : rake db:drop db:create db:migrate
-
-Or rake db:migrate:reset=> rake db:drop db:create db:migrate
-```
-
-### Adding Pagination ([Kaminari](https://github.com/kaminari/kaminari)):
-
-in `Gemfile`:
-
-`gem 'kaminari'`
+#### 3. Install dependencies
 
 ```zsh
 bundle
-rails g kaminari:config
 ```
 
-in `/config/initializers/kaminari_config.rb`:
+#### 4. Create and setup the database
 
-```ruby
-config.default_per_page = 5
+```zsh
+rails db:create && rails db:migrate && rails db:seed
 ```
 
-in `app/models/operation`:
+#### 5. Start the app
 
-```ruby
-paginates_per 5
+```zsh
+rails s
 ```
 
-in `app/controllers/operations`:
+Visit the app at localhost: http://localhost:3000
 
-```ruby
-def index
-  @operations = Post.page params[:page]
-end
-```
-
-in `app/views/main/index.html.erb`:
-
-```ruby
-paginate @operations
-```
-
-`rails g kaminari:views`
-
-or
-
-`rails g kaminari:views default`
-
-`rails g kaminari:views bootstrap4`
+Visit the app at web: 
 
 
-
-### Adding MiniTests:
-in `test/models/category_test.rb`:
-
-```ruby
-test 'return false if name is missed' do
-  new_category = Category.new(description: 'Test description')
-  assert_not(new_category.valid?)
-end
-
-test 'return true if everything is okay' do
-  new_category = Category.new(name: 'Test name', description: 'Test description')
-  assert(new_category.valid?)
-end
-
-test 'saving and gathering' do
-  new_category = Category.new(name: 'Test name', description: 'Test description')
-  new_category.save
-  new_cat = Category.find_by(name: 'Test name')
-  assert_equal('Test description', new_cat.description)
-end
-
-test "testing fixtures/categories. Check the '1st_Category' from database" do
-  category_first = Category.find_by(name: 'TestName')
-  assert_equal('MyDescription', category_first.description)
-end
-```
-to run that particular test:
-
-`rails test test/models/category_test.rb`
-
-Якшо були внесені зміни в сценарії міграції, потрібно обов'язково
-перебудувати тестову базу даних:
-
-`rails db:test:prepare`
-
-Текстові дані для тестової бази даних формуються у вигляді
-фікстур (Fixtures)
-
+#### TODO:
+- [x] Add `yurkovskiy` to collaborators
+- [ ] Add `nromanen` to collaborators
