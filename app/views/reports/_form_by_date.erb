@@ -3,7 +3,7 @@
     <%= render partial: 'reports/date_choose' %>
 
     <div class="d-flex d-flex justify-content-between">
-      <button type="reset" class="reset-button btn btn btn-info"> <%= link_to t('.clear'), reports_create_report_by_dates_path, {:style=>'', :class => "button-reset"} %></button>
+      <button type="reset" class="reset-button btn btn btn-info"> <%= link_to t('reports.buttons_accept.clear'), reports_create_report_by_dates_path, {:style=>'', :class => "button-reset"} %></button>
       <%= f.submit "Generate by categories", formaction: reports_report_period_by_categories_path, :class => 'btn btn-primary' %>
       <%= f.submit "Generate by dates", formaction: reports_report_period_by_dates_path, :class => 'btn btn-primary' %>
     </div>
