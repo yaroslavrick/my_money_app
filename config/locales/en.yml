@@ -78,6 +78,8 @@ en:
     form_by_category:
       category: Category
     form_by_date:
+      by_categories: By categories
+      by_dates: By dates
     create_report_by_category:
       generator_by_category: Generator of report by category
     create_report_by_dates:

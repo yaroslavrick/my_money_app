@@ -6,10 +6,12 @@
   <div class="table">
     <table class="report-table table table-striped">
       <thead>
-        <tr>
-          <th class="fw-bold"><%= link_to t('.category'), :sort => "category_name", params: request.query_parameters %> </th>
-          <th class="fw-bold"><%= link_to t('.amount'), :sort => "total_amounts", params: request.query_parameters %> </th>
-        </tr>
+      <% if report_type == "dates" %>
+        <th class="fw-bold"><%= t('.date') %> </th>
+      <% else %>
+        <th class="fw-bold"><%= t('.category') %> </th>
+      <% end %>
+      <th class="fw-bold"><%= t('.amount') %> </th>
       </thead>
       <tbody>
       <% @categories_and_total_amount.each do |name, amount| %>
