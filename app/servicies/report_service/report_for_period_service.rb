@@ -8,7 +8,6 @@ module ReportService
       categories_and_total_amount
       data_for_chart_by_dates
       find_total_sum
-      sort_table_data
       generate_result
     end
 
@@ -43,15 +42,6 @@ module ReportService
 
     def find_total_sum
       @total_sum = @total_amounts.sum.round(2)
-    end
-
-    def sort_table_data
-      case @params[:sort]
-      when 'category_name'
-        @categories_and_total_amount = @categories_and_total_amount.sort_by { |_name, category| category }.to_h
-      when 'total_amounts'
-        @categories_and_total_amount = @categories_and_total_amount.sort_by { |name, _category| name }.to_h
-      end
     end
 
     def generate_result
