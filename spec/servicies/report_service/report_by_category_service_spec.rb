@@ -12,7 +12,7 @@ RSpec.describe ReportService::ReportByCategoryService, type: :service do
     let!(:operation_iphone) { create(:operation, :iphone) }
     let(:operation_mac_book) { create(:operation, :mac_book) }
 
-    context 'when filtering by all proper params' do
+    context 'when filtering by category_id' do
       let(:params) { { 'operation' => { 'category_id' => category_smartphones.id } } }
 
       it 'returns the operations that belong to the specific category' do
