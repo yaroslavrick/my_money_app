@@ -8,7 +8,7 @@ class Operation < ApplicationRecord
   paginates_per 5
 
   def self.find_operation_by_category(id)
-    where(category_id: id) unless id.empty?
+    where(category_id: id) if id.present?
   end
 
   def self.find_operations_by_date(date_from, date_to)

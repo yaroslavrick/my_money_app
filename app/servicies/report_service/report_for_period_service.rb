@@ -16,7 +16,6 @@ module ReportService
 
     def find_by_date
       @operations = Operation.find_operations_by_date(@params['filter']['date-from'], @params['filter']['date-to'])
-      # @operations = find_operations_by_date(params['filter']['date-from'], params['filter']['date-to'])
       @operations = @operations.group('category_id', 'odate')
     end
 
@@ -61,7 +60,6 @@ module ReportService
         categories_and_total_amount: @categories_and_total_amount,
         categories_names: @categories_names,
         total_amounts: @total_amounts
-        # dates_and_total_amount: @dates_and_total_amount
       }
     end
   end

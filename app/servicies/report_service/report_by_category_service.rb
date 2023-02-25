@@ -14,7 +14,6 @@ module ReportService
 
     def find_by_category
       @operations = Operation.find_operation_by_category(@params['operation']['category_id'])
-      # @operations = find_operation_by_category(params['operation']['category_id'])
     end
 
     def find_category_name
@@ -22,7 +21,6 @@ module ReportService
     end
 
     def group_by_date_and_summarize
-      # @operations_grouped = @operations.group("strftime('%Y-%m-%d', odate)").sum('amount')
       @operations_grouped = @operations.group('odate').sum('amount')
     end
 

@@ -10,6 +10,6 @@ class Category < ApplicationRecord
   validates :description, presence: true
 
   def self.find_category_name_by_params(id)
-    find(id).name unless id.empty?
+    find(id).name if id.present?
   end
 end

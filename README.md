@@ -39,7 +39,7 @@ rails s
 
 Visit the app at localhost: http://localhost:3000
 
-Visit the app at web: 
+Visit the app at web:
 
 
 #### TODO:

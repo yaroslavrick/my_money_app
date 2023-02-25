@@ -20,10 +20,8 @@ class OperationsControllerTest < ActionDispatch::IntegrationTest
   test 'should create operation' do
     assert_difference('Operation.count') do
       post operations_url,
-           params: { operation: { activity_id: @operation.activity_id,
-                                  amount: @operation.amount,
-                                  category_id: @operation.category_id,
-                                  description: @operation.description,
+           params: { operation: { amount: @operation.amount, category_id: @operation.category_id,
+                                  description: @operation.description, activity_id: @operation.activity_id,
                                   odate: @operation.odate } }
     end
 
@@ -42,10 +40,8 @@ class OperationsControllerTest < ActionDispatch::IntegrationTest
 
   test 'should update operation' do
     patch operation_url(@operation),
-          params: { operation: { activity_id: @operation.activity_id,
-                                 amount: @operation.amount,
-                                 category_id: @operation.category_id,
-                                 description: @operation.description,
+          params: { operation: { amount: @operation.amount, category_id: @operation.category_id,
+                                 description: @operation.description, activity_id: @operation.activity_id,
                                  odate: @operation.odate } }
     assert_redirected_to operation_url(@operation)
   end
