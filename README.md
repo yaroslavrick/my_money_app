@@ -37,10 +37,15 @@ rails db:create && rails db:migrate && rails db:seed
 rails s
 ```
 
-Visit the app at localhost: http://localhost:3000
+#### 6. Visit the app at localhost: http://localhost:3000
 
-Visit the app at web:
+#### 7. Visit the app at web:
 
+#### 8. Run RSpec tests:
+
+```zsh
+bundle exec rspec
+```
 
 #### TODO:
 - [x] Add `yurkovskiy` to collaborators

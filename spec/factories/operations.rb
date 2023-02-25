@@ -41,4 +41,10 @@ FactoryBot.define do
     description { 'Sony Vaio' }
     category_id { 2 }
   end
+  trait :lenovo do
+    amount { 1000 }
+    odate { 'Thu, 29 Jan 2023 00 : 00 : 00.000000000 UTC + 00 : 00' }
+    description { 'Lenovo' }
+    category_id { 2 }
+  end
 end

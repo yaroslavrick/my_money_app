@@ -7,7 +7,7 @@ module ReportService
     def categories_and_total_amount
       @categories_and_total_amount = @categories_and_total_amount.transform_keys do |key|
         date = key[1].strftime('%Y-%m-%d')
-        "#{date} "
+        date.to_s
       end
     end
   end
