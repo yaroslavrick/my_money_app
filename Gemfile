@@ -59,6 +59,7 @@ group :test do
   gem 'shoulda-matchers', '~> 5.1.0'
   gem 'simplecov', '~> 0.22.0'
   gem 'simplecov-html', '~> 0.12.3'
+  gem 'simplecov-json', '~> 0.2.3'
   gem 'simplecov-lcov', '~> 0.8.0'
   gem 'simplecov-shields-badge', '~> 0.1.0'
   gem 'webdrivers'

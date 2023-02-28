@@ -2,13 +2,15 @@
 
 require 'simplecov'
 require 'simplecov-lcov'
-
+require 'simplecov-json'
 SimpleCov::Formatter::LcovFormatter.config.report_with_single_file = true
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   SimpleCov::Formatter::LcovFormatter,
+  SimpleCov::Formatter::JSONFormatter,
   SimpleCov::Formatter::HTMLFormatter
 ])
-SimpleCov.start do
+SimpleCov.start 'rails' do
+  minimum_coverage 70
   add_filter(/^\/spec\//) # For RSpec
 end
 
