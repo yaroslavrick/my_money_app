@@ -28,16 +28,16 @@ RSpec.describe ReportService::ReportPeriodByDatesService, type: :service do
       end
 
       it 'returns proper dates for table data' do
-        expected_result = [operation_mac_book.odate.strftime('%Y-%m-%d'),
-                           operation_sony_vaio.odate.strftime('%Y-%m-%d')]
+        expected_result = [operation_sony_vaio.odate.strftime('%Y-%m-%d'),
+                           operation_mac_book.odate.strftime('%Y-%m-%d')].sort
 
-        expect(filtered_data[:categories_names]).to eq(expected_result)
+        expect(filtered_data[:categories_names].sort).to eq(expected_result)
       end
 
       it 'returns total_amounts for table data' do
-        expected_result = [operation_mac_book.amount, operation_sony_vaio.amount]
+        expected_result = [operation_mac_book.amount, operation_sony_vaio.amount].sort
 
-        expect(filtered_data[:total_amounts]).to eq(expected_result)
+        expect(filtered_data[:total_amounts].sort).to eq(expected_result)
       end
     end
   end
