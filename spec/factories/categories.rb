@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require 'ffaker'
+
 FactoryBot.define do
   factory :category do
     name { FFaker::Product.product_name }

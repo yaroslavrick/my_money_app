@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require 'ffaker'
+
 FactoryBot.define do
   factory :operation do
     amount { rand(5.0..2000.0) }
