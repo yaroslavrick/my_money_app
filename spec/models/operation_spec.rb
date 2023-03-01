@@ -72,4 +72,11 @@ RSpec.describe Operation do
       expect(described_class.default_per_page).to eq(described_class::PAGINATION_PAGES)
     end
   end
+
+  describe 'columns' do
+    it { is_expected.to have_db_column(:amount) }
+    it { is_expected.to have_db_column(:odate) }
+    it { is_expected.to have_db_column(:description) }
+    it { is_expected.to have_db_column(:category_id) }
+  end
 end
