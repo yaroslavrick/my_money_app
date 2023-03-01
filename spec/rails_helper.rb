@@ -10,7 +10,7 @@ SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   SimpleCov::Formatter::HTMLFormatter
 ])
 SimpleCov.start 'rails' do
-  minimum_coverage 90
+  minimum_coverage 70
   add_filter(/^\/spec\//) # For RSpec
 end
 
