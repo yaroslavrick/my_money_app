@@ -4,7 +4,6 @@ class OperationsController < ApplicationController
   before_action :set_operation, only: %i[show edit update destroy]
 
   def index
-    # @operations = Operation.all
     @operations = Operation.page params[:page]
   end
 
