@@ -8,7 +8,7 @@ class ReportsController < ApplicationController
   def report_by_category
     if params[:operation][:category_id].blank?
       flash[:alert] = t('.choose_category')
-      render 'create_report_by_category'
+      redirect_to reports_create_report_by_category_path, status: :found
       return
     end
 
