@@ -18,36 +18,25 @@ class OperationsController < ApplicationController
   def create
     @operation = Operation.new(operation_params)
 
-    respond_to do |format|
-      if @operation.save
-        format.html { redirect_to operation_url(@operation), notice: I18n.t('operation_was_successfully_created') }
-        format.json { render :show, status: :created, location: @operation }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @operation.errors, status: :unprocessable_entity }
-      end
+    if @operation.save
+      redirect_to operation_url(@operation), notice: I18n.t('operation_was_successfully_created')
+    else
+      render :new, status: :unprocessable_entity
     end
   end
 
   def update
-    respond_to do |format|
-      if @operation.update(operation_params)
-        format.html { redirect_to operation_url(@operation), notice: I18n.t('operation_was_successfully_updated') }
-        format.json { render :show, status: :ok, location: @operation }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @operation.errors, status: :unprocessable_entity }
-      end
+    if @operation.update(operation_params)
+      redirect_to operation_url(@operation), notice: I18n.t('operation_was_successfully_updated')
+    else
+      render :edit, status: :unprocessable_entity
     end
   end
 
   def destroy
     @operation.destroy
 
-    respond_to do |format|
-      format.html { redirect_to operations_url, notice: I18n.t('operation_was_successfully_destroyed') }
-      format.json { head :no_content }
-    end
+    redirect_to operations_url, notice: I18n.t('operation_was_successfully_destroyed')
   end
 
   private
