@@ -6,6 +6,12 @@ class ReportsController < ApplicationController
   def create_report_by_category; end
 
   def report_by_category
+    if params[:operation][:category_id].blank?
+      flash[:alert] = t('.choose_category')
+      render 'create_report_by_category'
+      return
+    end
+
     @report = ReportService::ReportByCategoryService.new(params:).call
     create_report_data_by_category
   end

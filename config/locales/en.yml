@@ -86,6 +86,7 @@ en:
       generator_by_date: Generator of report by date
     report_by_category:
       expenses_by_category: Expenses by category
+      choose_category: Choose category!
     report_by_dates:
       expenses_by_date_from: Expenses by date from
       to: to

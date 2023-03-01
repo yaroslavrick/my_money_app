@@ -86,6 +86,7 @@ uk:
       generator_by_date: Генератор звіту за датою
     report_by_category:
       expenses_by_category: Витрати за категорією
+      choose_category: Вибери категорію!
     report_by_dates:
       expenses_by_date_from: Витрати з дати
       to: по
