@@ -26,12 +26,12 @@ class CategoriesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should show category' do
-    get category_url(@category)
+    get category_path(@category)
     assert_response :success
   end
 
   test 'should get edit' do
-    get edit_category_url(@category)
+    get edit_category_path(@category)
     assert_response :success
   end
 
