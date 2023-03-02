@@ -17,7 +17,6 @@ class OperationsController < ApplicationController
 
   def create
     @operation = Operation.new(operation_params)
-
     if @operation.save
       redirect_to operation_url(@operation), notice: I18n.t('operation_was_successfully_created')
     else
