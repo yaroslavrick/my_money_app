@@ -33,6 +33,7 @@ Metrics/BlockLength:
   Exclude:
     - spec/**/*
     - test/**/*
+    - config/environments/development.rb
 
 # Layout ----------------------------------------------------------------------
 
