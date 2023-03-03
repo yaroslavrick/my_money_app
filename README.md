@@ -39,7 +39,7 @@ rails s
 
 #### 6. Visit the app at localhost: http://localhost:3000
 
-#### 7. Visit the app at web:
+#### 7. Visit the app at web: https://financeapp-production.up.railway.app/
 
 #### 8. Run RSpec tests:
 
