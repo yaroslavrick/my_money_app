@@ -42,16 +42,12 @@ pidfile ENV.fetch('PIDFILE') { 'tmp/pids/server.pid' }
 #
 # workers ENV.fetch('WEB_CONCURRENCY', 4)
 
-# rubocop:disable Style/RedundantFetchBlock
-workers ENV.fetch('WEB_CONCURRENCY') { 4 }
-# rubocop:enable Style/RedundantFetchBlock
-
 # Use the `preload_app!` method when specifying a `workers` number.
 # This directive tells Puma to first boot the application and load code
 # before forking the application. This takes advantage of Copy On Write
 # process behavior so workers use less memory.
 #
-preload_app!
+# preload_app!
 
 # Allow puma to be restarted by `bin/rails restart` command.
 plugin :tmp_restart
