@@ -49,4 +49,4 @@ bundle exec rspec
 
 #### TODO:
 - [x] Add `yurkovskiy` to collaborators
-- [ ] Add `nromanen` to collaborators
+- [x] Add `nromanen` to collaborators
