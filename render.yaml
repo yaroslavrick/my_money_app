@@ -1,5 +1,6 @@
 databases:
-  - name: postgres
+  - name: finance_app_postgres
+    databaseName: finance_app_postgres
     ipAllowList: []
 
 services:
@@ -8,13 +9,13 @@ services:
     plan: free
     env: ruby
     buildCommand: "./bin/render-build.sh"
-    startCommand: bundle exec rails s
+    startCommand: "bundle exec puma -C config/puma.rb"
     envVars:
       - key: RAILS_MASTER_KEY
         sync: false
       - key: DATABASE_URL
         fromDatabase:
-          name: postgres
+          name: finance_app_postgres
           property: connectionString
 
   - type: redis
