@@ -1,14 +1,29 @@
+# Operations fixtures:
 <% require 'date' %>
 one:
-  id: 1
+  id: 100
   amount: 9.99
   odate: 2023-01-30 21:30:47
   description: MyString
   category: one
 
 two:
-  id: 2
+  id: 101
   amount: 9.99
   odate: 2023-01-30 21:30:47
+  description: MyString
+  category: two
+
+three:
+  id: 102
+  amount: 9.99
+  odate: 2023-01-30 21:30:47
+  description: MyString
+  category: two
+
+four:
+  id: 103
+  amount: 5.00
+  odate: 2022-12-01 01:30:10
   description: MyString
   category: two
