@@ -19,30 +19,31 @@ class CategoriesControllerTest < ActionDispatch::IntegrationTest
 
   test 'should create category' do
     assert_difference('Category.count') do
-      post categories_url, params: { category: { description: @category.description, name: @category.name } }
+      post categories_url, params: { category: { name: 'Name', description: 'Description' } }
     end
 
     assert_redirected_to category_url(Category.last)
   end
 
   test 'should show category' do
-    get category_path(@category)
+    get category_path(id: @category.id)
     assert_response :success
   end
 
   test 'should get edit' do
-    get edit_category_path(@category)
+    get edit_category_path(id: @category.id)
     assert_response :success
   end
 
   test 'should update category' do
-    patch category_url(@category), params: { category: { description: @category.description, name: @category.name } }
+    patch category_url(id: @category.id),
+          params: { category: { description: @category.description, name: @category.name } }
     assert_redirected_to category_url(@category)
   end
 
   test 'should destroy category' do
     assert_difference('Category.count', -1) do
-      delete category_url(@category)
+      delete category_url(id: @category.id)
     end
 
     assert_redirected_to categories_url

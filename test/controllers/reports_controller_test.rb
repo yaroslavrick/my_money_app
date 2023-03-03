@@ -3,28 +3,18 @@
 require 'test_helper'
 
 class ReportsControllerTest < ActionDispatch::IntegrationTest
-  test 'should get report_by_category_url' do
-    get reports_report_by_category_url
+  fixtures :categories
+
+  test 'renders the report_by_category template when category is selected' do
+    category = categories(:one)
+    get '/reports/report_by_category', params: { operation: { category_id: category.id } }
     assert_response :success
+    assert_template :report_by_category
   end
 
-  test 'should get report_by_categories' do
-    get reports_report_period_by_categories_url
-    assert_response :success
-  end
-
-  test 'should get report_by_dates' do
-    get reports_report_period_by_dates_url
-    assert_response :success
-  end
-
-  test 'should get reports_create_report_by_category_path' do
-    get reports_create_report_by_category_path
-    assert_response :success
-  end
-
-  test 'should get reports_create_report_by_dates_path' do
-    get reports_create_report_by_dates_path
-    assert_response :success
+  test 'redirects to create_report_by_category when category is not selected' do
+    get '/reports/report_by_category', params: { operation: { category_id: nil } }
+    assert_response :redirect
+    assert_redirected_to reports_create_report_by_category_path
   end
 end

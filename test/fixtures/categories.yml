@@ -9,6 +9,6 @@ two:
 
 <% 1.upto(10) do |i| %>
 category<%= i %>:
-  name: Category_name<%= i %>
-  description: description<%= i %>
+  name: Category_name_<%= i %>
+  description: description_<%= i %>
 <% end %>

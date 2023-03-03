@@ -28,8 +28,8 @@ class CategoryTest < ActiveSupport::TestCase
 
   test "Check the 'Category_name9' from db" do
     category_nine = Category.find_by(name: 'Category_name_9')
-    assert_equal('description9', category_nine.description)
-    assert_equal('Category_name9', category_nine.name)
+    assert_equal('description_9', category_nine.description)
+    assert_equal('Category_name_9', category_nine.name)
   end
 
   test 'return false if name of category is not unique' do

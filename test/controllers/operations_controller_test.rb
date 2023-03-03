@@ -29,26 +29,26 @@ class OperationsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should show operation' do
-    get operation_url(@operation)
+    get operation_path(id: @operation.id)
     assert_response :success
   end
 
   test 'should get edit' do
-    get edit_operation_url(@operation.id)
+    get edit_operation_path(id: @operation.id)
     assert_response :success
   end
 
   test 'should update operation' do
-    patch operation_url(@operation),
+    patch operation_path(id: @operation.id),
           params: { operation: { amount: @operation.amount, category_id: @operation.category_id,
                                  description: @operation.description,
                                  odate: @operation.odate } }
-    assert_redirected_to operation_url(@operation)
+    assert_redirected_to operation_path(@operation)
   end
 
   test 'should destroy operation' do
     assert_difference('Operation.count', -1) do
-      delete operation_url(@operation.id)
+      delete operation_path(id: @operation.id)
     end
 
     assert_redirected_to operations_url
