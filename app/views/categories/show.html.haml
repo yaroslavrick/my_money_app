@@ -1,0 +1,8 @@
+%p{:style => "color: green"}= notice
+= render @category
+%div
+  = link_to t('.edit_category'), edit_category_path(@category)
+  |
+  \#{link_to t('shared.back_to_categories'), categories_path}
+  
+  \#{button_to t('.destroy_category'), @category, method: :delete}

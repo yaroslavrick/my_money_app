@@ -1,0 +1,28 @@
+%nav.navbar.navbar-expand-lg.bg-body-tertiary.bg-tertiary.sticky-top
+  .container-fluid
+    %a.navbar-brand{:href => root_path}= t('.title')
+    %button.navbar-toggler{"aria-controls" => "navbarSupportedContent", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-bs-target" => "#navbarSupportedContent", "data-bs-toggle" => "collapse", :type => "button"}
+      %span.navbar-toggler-icon
+    #navbarSupportedContent.collapse.navbar-collapse
+      %ul.navbar-nav.me-auto.mb-2.mb-lg-0
+        / Categories
+        %li.nav-item
+          %a.nav-link{:href => categories_path}
+            = t('.categories')
+        / Operations
+        %li.nav-item
+          %a.nav-link{:href => operations_path}
+            = t('.operations')
+        / Reports
+        %li.nav-item.dropdown
+          %a.nav-link.dropdown-toggle{"aria-expanded" => "false", "data-bs-toggle" => "dropdown", :href => "/reports/index", :role => "button"}
+            = t('.reports')
+          %ul.dropdown-menu
+            %li
+              %a.dropdown-item{:href => reports_create_report_by_dates_path}= t('.by_dates')
+            %li
+              %hr.dropdown-divider/
+            %li
+              %a.dropdown-item{:href => reports_create_report_by_category_path}= t('.by_category')
+        / Languages:
+        = render partial: 'shared/translation_drop_menu'

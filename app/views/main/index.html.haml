@@ -1,0 +1,25 @@
+%h1= t('.all_operations')
+%hr/
+- @operations.each do |operation|
+  %div
+    %p
+      %b= "#{t('.id')}:"
+      = operation.id
+    %p
+      %b= "#{t('.description')}:"
+      = operation.description
+    %p
+      %b= "#{t('.amount')}:"
+      = operation.amount
+    %p
+      %b= "#{t('.date')}:"
+      = operation.odate
+    %p
+      %b= "#{t('.category_id')}:"
+      = operation.category_id
+    %p
+      %b= "#{t('.category_name')}:"
+      = @all_categories.find(operation.category_id).name
+  %hr/
+%div
+  = paginate @operations

@@ -1,0 +1,7 @@
+%h1= t('.editing_operation')
+= render "form", operation: @operation
+%br/
+%div
+  = link_to t('.show_this_operation'), @operation
+  |
+  \#{link_to t('shared.back_to_operations'), operations_path}

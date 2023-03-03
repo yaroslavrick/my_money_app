@@ -1,9 +1,0 @@
-<div class="d-flex justify-content-between">
-  <label for="date_from" class="date_choose_label"><%= t('.date_from') %>:</label>
-  <input type="date" id="date_from" name="filter[date-from]" value="<%= 2.months.ago.strftime('%Y-%m-%d') %>"  min="2018-01-01" max="2030-12-31">
-</div>
-
-<div class="d-flex justify-content-between">
-  <label for="date_to" class="date_choose_label"><%= t('.date_to') %>:</label>
-  <input type="date" id="date_to" name="filter[date-to]" value="<%= Date.today.strftime('%Y-%m-%d') %>">
-</div>

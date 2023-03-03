@@ -1,0 +1,10 @@
+.d-flex.justify-content-between
+  %label.date_choose_label{:for => "date_from"}
+    = t('.date_from')
+    \:
+  %input#date_from{:max => "2030-12-31", :min => "2018-01-01", :name => "filter[date-from]", :type => "date", :value => "#{2.months.ago.strftime('%Y-%m-%d')}"}/
+.d-flex.justify-content-between
+  %label.date_choose_label{:for => "date_to"}
+    = t('.date_to')
+    \:
+  %input#date_to{:name => "filter[date-to]", :type => "date", :value => "#{Date.today.strftime('%Y-%m-%d')}"}/

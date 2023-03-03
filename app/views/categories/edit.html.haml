@@ -1,0 +1,7 @@
+%h1= t('.editing_category')
+= render "form", category: @category
+%br/
+%div
+  = link_to t('.show_this_category'), @category
+  |
+  \#{link_to t('.back_to_categories'), categories_path}

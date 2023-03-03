@@ -1,0 +1,8 @@
+%p{:style => "color: green"}= notice
+= render @operation
+%div
+  = link_to t('.edit_this_operation'), edit_operation_path(@operation)
+  |
+  \#{link_to t('shared.back_to_operations'), operations_path}
+  
+  \#{button_to t('.destroy_this_operation'), @operation, method: :delete}
