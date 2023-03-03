@@ -46,7 +46,3 @@ rails s
 ```zsh
 bundle exec rspec
 ```
-
-#### TODO:
-- [x] Add `yurkovskiy` to collaborators
-- [x] Add `nromanen` to collaborators
