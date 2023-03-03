@@ -1,0 +1,10 @@
+%p{:style => "color: green"}= notice
+%h1= t('.categories')
+.add-item
+  %button.btn.btn-primary.mb-2{:type => "button"}= link_to t('.new_category'), new_category_path, class: "button-reset light-text "
+#categories
+  - @categories.each do |category|
+    = render category
+    %p
+      = link_to t('.show_this_category'), category
+= paginate @categories

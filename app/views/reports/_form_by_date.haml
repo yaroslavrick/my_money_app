@@ -1,0 +1,8 @@
+.col-lg-3
+  = form_with url: "/reports/create_form_by_date", method: :get, class: "mt-2 d-flex flex-column justify-content-between gap-2 w-200" do |f|
+    = render partial: 'reports/date_choose'
+    .d-flex.d-flex.justify-content-between.gap-2
+      %button.reset-button.btn.btn.btn-info{:type => "reset"}
+        = link_to t('reports.buttons_accept.clear'), reports_create_report_by_dates_path, {:style=>'', :class => "button-reset"}
+      = f.submit t('.by_categories'), formaction: reports_report_period_by_categories_path, :class => 'btn btn-primary'
+      = f.submit t('.by_dates'), formaction: reports_report_period_by_dates_path, :class => 'btn btn-primary'

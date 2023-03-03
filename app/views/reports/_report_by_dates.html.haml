@@ -1,0 +1,33 @@
+%div{:style => "text-align: center"}
+  %h1
+    = t('.expenses_by_date_from')
+    = params["filter"]["date-from"]
+    = t('.to')
+    = params["filter"]["date-to"]
+    = @category
+.d-flex.mb-20
+  .table
+    %table.report-table.table.table-striped
+      %thead
+        - if report_type == "dates"
+          %th.fw-bold
+            = t('.date')
+        - else
+          %th.fw-bold
+            = t('.category')
+        %th.fw-bold
+          = t('.amount')
+      %tbody
+        - @categories_and_total_amount.each do |name, amount|
+          %tr
+            %td= name
+            %td= amount.round(2)
+            %td
+      %tfoot
+        %tr
+          %td.fw-bold
+            = t('.total')
+            \:
+          %td.fw-bold= @total_sum
+  = render 'shared/pie_chart'
+= paginate @categories_and_total_amount

@@ -1,0 +1,24 @@
+= form_with(model: operation) do |form|
+  - if operation.errors.any?
+    %div{:style => "color: red"}
+      %h2
+        = pluralize(operation.errors.count, "error")
+        = t('.prohibited_this_operation')
+        \:
+      %ul
+        - operation.errors.each do |error|
+          %li= error.full_message
+  %div
+    = form.label :category_id, style: "display: block"
+    = form.select("category_id", Category.pluck(:name, :id), { :prompt => 'Select' })
+  %div
+    = form.label :amount, style: "display: block"
+    = form.text_field :amount
+  %div
+    = form.label :odate, style: "display: block"
+    = form.datetime_field :odate
+  %div
+    = form.label :description, style: "display: block"
+    = form.text_field :description
+  %div
+    = form.submit t('.submit'), class: 'btn btn-primary'

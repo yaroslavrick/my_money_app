@@ -1,0 +1,6 @@
+%p{:style => "color: green"}= notice
+%h1= t('.operations')
+.add-item
+  %button.btn.btn-primary.mb-2{:type => "button"}= link_to t('.new_operation'), new_operation_path, class: "button-reset light-text"
+= render partial: "shared/operations_list"
+= paginate @operations
