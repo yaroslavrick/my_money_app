@@ -9,6 +9,7 @@ gem 'bootsnap', '~> 1.16', require: false
 gem 'bootstrap', '~> 5.2.3'
 gem 'chart-js-rails', '~> 0.1.7'
 gem 'dotenv-rails', '~> 2.7.6'
+gem 'ffaker', '~> 2.21'
 gem 'hamlit', '~> 3.0.3'
 gem 'hamlit-rails', '~> 0.2.3'
 gem 'html2haml', '~> 2.2.0'
@@ -49,7 +50,6 @@ group :development, :test do
 end
 
 group :development do
-  gem 'ffaker', '~> 2.21'
   gem 'web-console', '~> 4.2.0'
 end
 
