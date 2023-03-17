@@ -15,6 +15,10 @@ PreCommit:
   DatabaseConsistency:
     enabled: true
     command: ['bundle', 'exec', 'database_consistency']
+  RailsBestPractices:
+    enabled: true
+  RailsSchemaUpToDate:
+    enabled: true
 PrePush:
   RSpec:
     enabled: true
@@ -23,3 +27,5 @@ PrePush:
   BundleInstall:
     enabled: true
     on_warn: fail
+  Brakeman:
+    enabled: true

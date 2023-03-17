@@ -51,6 +51,7 @@ group :development, :test do
 end
 
 group :development do
+  gem 'brakeman', '~> 5.4.1'
   gem 'web-console', '~> 4.2.0'
 end
 
