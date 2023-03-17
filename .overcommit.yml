@@ -1,14 +1,16 @@
 PreCommit:
   RuboCop:
     enabled: true
-    on_warn: fail # Treat all warnings as failures
+    command: ['bundle', 'exec', 'rubocop', '-c', './.rubocop.yml']
+    on_warn: fail
   Fasterer:
     enabled: true
-    on_warn: fail # Treat all warnings as failures
+    on_warn: fail
     problem_on_unmodified_line: ignore
     command: ['bundle', 'exec', 'fasterer']
   BundleAudit:
     enabled: true
+    on_warn: fail
     command: ['bundle', 'exec', 'bundler-audit', 'check', '--update']
   DatabaseConsistency:
     enabled: true
@@ -16,8 +18,8 @@ PreCommit:
 PrePush:
   RSpec:
     enabled: true
-    command: [ 'bundle', 'exec', 'rspec' ]
-    include:
-      - spec/**/*_spec.rb
-    verbose: true
-    require_files: [ ]
+    on_warn: fail
+    command: ['bundle', 'exec', 'rspec', 'spec']
+  BundleInstall:
+    enabled: true
+    on_warn: fail
