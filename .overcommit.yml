@@ -10,3 +10,14 @@ PreCommit:
   BundleAudit:
     enabled: true
     command: ['bundle', 'exec', 'bundler-audit', 'check', '--update']
+  DatabaseConsistency:
+    enabled: true
+    command: ['bundle', 'exec', 'database_consistency']
+PrePush:
+  RSpec:
+    enabled: true
+    command: [ 'bundle', 'exec', 'rspec' ]
+    include:
+      - spec/**/*_spec.rb
+    verbose: true
+    require_files: [ ]
