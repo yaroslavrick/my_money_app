@@ -15,7 +15,6 @@ module ReportService
 
     def find_by_date
       @operations = Operation.find_operations_by_date(@params['filter']['date-from'], @params['filter']['date-to'])
-      @operations = @operations.group('category_id', 'odate')
     end
 
     def group_by_category
@@ -42,6 +41,10 @@ module ReportService
 
     def find_total_sum
       @total_sum = @total_amounts.sum.round(2)
+    end
+
+    def categories_and_total_amount
+      raise NotImplementedError
     end
 
     def generate_result
