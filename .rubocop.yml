@@ -1,19 +1,21 @@
 require:
+  - rubocop-i18n
   - rubocop-md
   - rubocop-rake
   - rubocop-performance
   - rubocop-rails
   - rubocop-rspec
+  - rubocop-factory_bot
 
 AllCops:
   TargetRubyVersion: 3.1.2
   NewCops: enable
   Exclude:
     - './app/concerns/internationalization.rb'
-    - './bin/bundle'
     - 'vendor/bundle/**/*'
-    - './bin/*'
-    - './db/schema.rb'
+    - 'bin/**/*'
+    - 'db/**/*'
+    - spec/requests/api/v1/*
 
 Lint/MissingSuper:
   Enabled: false
