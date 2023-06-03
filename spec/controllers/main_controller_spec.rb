@@ -4,10 +4,10 @@ require 'rails_helper'
 
 RSpec.describe MainController do
   describe 'GET#index' do
-    let!(:category1) { create(:category) }
-    let!(:category2) { create(:category) }
-    let!(:operation1) { create(:operation, category: category1) }
-    let!(:operation2) { create(:operation, category: category2) }
+    let!(:category_one) { create(:category) }
+    let!(:category_other) { create(:category) }
+    let!(:operation_one) { create(:operation, category: category_one) }
+    let!(:operation_other) { create(:operation, category: category_other) }
 
     before { get :index }
 
@@ -16,11 +16,11 @@ RSpec.describe MainController do
     end
 
     it 'assigns @all_operations with all operations' do
-      expect(assigns(:all_operations)).to eq([operation1, operation2])
+      expect(assigns(:all_operations)).to eq([operation_one, operation_other])
     end
 
     it 'assigns @all_categories with all categories' do
-      expect(assigns(:all_categories)).to eq([category1, category2])
+      expect(assigns(:all_categories)).to eq([category_one, category_other])
     end
 
     it 'assigns operations with paginated list of operations' do

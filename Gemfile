@@ -42,6 +42,7 @@ group :development, :test do
   gem 'rails_best_practices', '~> 1.23.2'
   gem 'rspec', '~> 3.12.0'
   gem 'rspec-rails', '~> 6.0.1'
+  gem 'rswag', '~> 2.9.0'
   gem 'rubocop', '~> 1.44.1'
   gem 'rubocop-md', '~> 1.2.0'
   gem 'rubocop-performance', '~> 1.15.2'
