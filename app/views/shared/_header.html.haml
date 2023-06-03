@@ -7,8 +7,13 @@
       %ul.navbar-nav.me-auto.mb-2.mb-lg-0
         / Categories
         %li.nav-item
-          %a.nav-link{:href => categories_path}
-            = t('.categories')
+          = nav_tab(t('.categories'), categories_path, class: 'nav-link', current_page: current_page)
+
+          -# = link_to "Категорії", "/uk/categories", {:class=>"nav-link text-danger"}
+
+          -# %a.nav-link.text-secondary{:href => categories_path}
+          -#   = t('.categories')
+
         / Operations
         %li.nav-item
           %a.nav-link{:href => operations_path}
