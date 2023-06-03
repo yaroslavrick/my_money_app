@@ -74,3 +74,29 @@ rails s
 ```zsh
 bundle exec rspec
 ```
+
+## Testing
+
+To run the test suite, use the following command:
+
+```bash
+bundle exec rspec
+```
+
+## Using Rswag
+
+To view the API documentation, run the rails server and go to http://localhost:3000/api-docs
+
+To create rswag file for new endpoint, run the following command:
+
+```bash
+bundle exec rails generate rspec:swagger API::MyControllerName
+```
+
+Then watch the file in spec/request/api/my_controller_name_spec.rb and add the test cases for the endpoint.
+
+Generate documentation for the endpoint using:
+
+```bash
+bundle exec rake rswag:specs:swaggerize
+```
