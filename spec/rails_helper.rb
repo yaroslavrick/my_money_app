@@ -22,7 +22,11 @@ require 'spec_helper'
 ENV['RAILS_ENV'] ||= 'test'
 require_relative '../config/environment'
 # Prevent database truncation if the environment is production
-abort('The Rails environment is running in production mode!') if Rails.env.production?
+
+# rubocop:disable I18n/RailsI18n/DecorateString
+abort(_('The Rails environment is running in production mode!')) if Rails.env.production?
+# rubocop:enable I18n/RailsI18n/DecorateString
+
 require 'rspec/rails'
 # Add additional requires below this line. Rails is not loaded until this point!
 
