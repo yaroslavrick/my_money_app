@@ -1,5 +1,5 @@
 # Personal finance manager
-[![Coverage](badge.svg)](https://github.com/yaroslavrick/finance_app)
+[![Coverage](badge.svg)](https://github.com/yaroslavrick/my_money_app)
 
 ### Requirements
 
@@ -9,7 +9,7 @@
 #### 1. Clone the repository
 
 ```zsh
-https://github.com/yaroslavrick/finance_app
+https://github.com/yaroslavrick/my_money_app
 cd finance_app
 ```
 
