@@ -1,4 +1,5 @@
 # Personal finance manager
+[![CI](https://github.com/yaroslavrick/my_money_app/actions/workflows/ci.yml/badge.svg)](https://github.com/yaroslavrick/my_money_app/actions/workflows/ci.yml)
 [![Coverage](badge.svg)](https://github.com/yaroslavrick/my_money_app)
 
 ## Screenshots:
