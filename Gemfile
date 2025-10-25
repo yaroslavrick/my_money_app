@@ -5,7 +5,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '3.1.2'
 
-gem 'bootsnap', '~> 1.16', require: false
+gem 'bootsnap', '~> 1.18', require: false
 gem 'bootstrap', '~> 5.2.3'
 gem 'chart-js-rails', '~> 0.1.7'
 gem 'dotenv-rails', '~> 2.7.6'
