@@ -26,14 +26,14 @@ gem 'sassc-rails', '~> 2.1.2'
 gem 'sprockets-rails', '~> 3.4.2'
 gem 'stimulus-rails', '~> 1.2.1'
 gem 'turbo-rails', '~> 1.3.3'
-gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
+gem "tzinfo-data", platforms: %i[ windows jruby ]
 
 group :development, :test do
   gem 'bundler-audit', '~> 0.9.1', require: false
   gem 'bundler-leak', '~> 0.3.0', require: false
-  gem 'byebug', '~> 11.1.3', platforms: %i[mri mingw x64_mingw]
+  gem 'byebug', '~> 11.1.3', platforms: %i[mri windows]
   gem 'database_consistency', '~> 1.7.5'
-  gem 'debug', '~> 1.7.1', platforms: %i[mri mingw x64_mingw]
+  gem 'debug', '~> 1.7.1', platforms: %i[mri windows]
   gem 'factory_bot_rails', '~> 6.2.0'
   gem 'fasterer', '~> 0.10.0'
   gem 'observer' # Required for factory_bot with Ruby 3.4+
