@@ -1,6 +1,15 @@
 # Personal finance manager
 [![Coverage](badge.svg)](https://github.com/yaroslavrick/my_money_app)
 
+## Screenshots:
+
+![Charts by category page](public/screenshots/by_category_chart.png)
+![Charts by date page](public/screenshots/by_date_chart.png)
+![Report by category generator page](public/screenshots/report_by_category_generator_page.png.png)
+![Report by category generator page](public/screenshots/report_by_date_generator_page.png)
+![Operations page](public/screenshots/operations_page.png)
+![Categories page](public/screenshots/categories_page.png)
+
 ### Requirements
 
 - Ruby 3.1.2
@@ -56,13 +65,13 @@ or:
 #### 5. Create and setup the database
 
 ```zsh
-rails db:create && rails db:migrate && rails db:seed
+bundle exec rails db:create && bundle exec rails db:migrate && bundle exec rails db:seed
 ```
 
 #### 6. Start the app
 
 ```zsh
-rails s
+bundle exec rails s -p 3019
 ```
 
 #### 7. Visit the app at localhost: http://localhost:3000
