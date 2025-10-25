@@ -26,7 +26,7 @@ gem 'sassc-rails', '~> 2.1.2'
 gem 'sprockets-rails', '~> 3.4.2'
 gem 'stimulus-rails', '~> 1.2.1'
 gem 'turbo-rails', '~> 1.3.3'
-gem "tzinfo-data", platforms: %i[ windows jruby ]
+gem 'tzinfo-data', platforms: %i[windows jruby]
 
 group :development, :test do
   gem 'bundler-audit', '~> 0.9.1', require: false
@@ -54,6 +54,7 @@ group :development, :test do
 end
 
 group :development do
+  gem 'abbrev' # Required for brakeman with Ruby 3.4+
   gem 'brakeman', '~> 5.4.1', require: false
   gem 'web-console', '~> 4.2.0'
 end
