@@ -1,0 +1,87 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [ main ]
+
+jobs:
+  scan_ruby:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: .ruby-version
+          bundler-cache: true
+
+      - name: Scan for common Rails security vulnerabilities using static analysis
+        run: bundle exec brakeman --no-pager
+
+      - name: Run bundle audit
+        run: bundle exec bundle audit
+
+      - name: Run bundle leak check
+        run: bundle exec bundle leak check --update
+
+  lint:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: .ruby-version
+          bundler-cache: true
+
+      - name: Lint code for consistent style
+        run: bundle exec rubocop -c .rubocop.yml
+
+      - name: Run fasterer
+        run: bundle exec fasterer
+
+  test:
+    runs-on: ubuntu-latest
+
+    services:
+      postgres:
+        image: postgres:latest
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: password
+        ports: ['5432:5432']
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+
+    env:
+      RAILS_ENV: test
+      POSTGRES_HOST: localhost
+      POSTGRES_PORT: 5432
+      DB_USERNAME: postgres
+      DB_PASSWORD: password
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: .ruby-version
+          bundler-cache: true
+
+      - name: Set up database
+        run: bundle exec rails db:test:prepare
+
+      - name: Run tests
+        run: bundle exec rspec

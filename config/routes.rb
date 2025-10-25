@@ -1,8 +1,6 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  mount Rswag::Ui::Engine => '/api-docs'
-  mount Rswag::Api::Engine => '/api-docs'
   scope '(:locale)', locale: /#{I18n.available_locales.join("|")}/ do
     root 'main#index'
     get 'reports/report_by_category', to: 'reports#report_by_category'

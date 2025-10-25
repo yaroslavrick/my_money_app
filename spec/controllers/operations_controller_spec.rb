@@ -77,7 +77,7 @@ RSpec.describe OperationsController do
         post :create,
              params: { operation: { amount: 1, description: nil, odate: nil, category_id: nil } }
 
-        expect(response).to have_http_status(:unprocessable_entity)
+        expect(response).to have_http_status(:unprocessable_content)
       end
     end
   end
@@ -120,8 +120,8 @@ RSpec.describe OperationsController do
         expect(response).to render_template(:edit)
       end
 
-      it 'returns status :unprocessable_entity' do
-        expect(response).to have_http_status(:unprocessable_entity)
+      it 'returns status :unprocessable_content' do
+        expect(response).to have_http_status(:unprocessable_content)
       end
     end
   end
@@ -164,8 +164,8 @@ RSpec.describe OperationsController do
         expect(response).to render_template(:edit)
       end
 
-      it 'returns status :unprocessable_entity' do
-        expect(response).to have_http_status(:unprocessable_entity)
+      it 'returns status :unprocessable_content' do
+        expect(response).to have_http_status(:unprocessable_content)
       end
     end
   end
