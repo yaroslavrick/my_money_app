@@ -12,8 +12,8 @@
 
 ### Requirements
 
-- Ruby 3.1.2
-- Rails 7.0.4
+- Ruby 3.4.7
+- Rails 7.2.2
 
 #### 1. Clone the repository
 
@@ -71,7 +71,7 @@ bundle exec rails db:create && bundle exec rails db:migrate && bundle exec rails
 #### 6. Start the app
 
 ```zsh
-bundle exec rails s -p 3019
+bundle exec rails s
 ```
 
 #### 7. Visit the app at localhost: http://localhost:3000
@@ -90,22 +90,4 @@ To run the test suite, use the following command:
 
 ```bash
 bundle exec rspec
-```
-
-## Using Rswag
-
-To view the API documentation, run the rails server and go to http://localhost:3000/api-docs
-
-To create rswag file for new endpoint, run the following command:
-
-```bash
-bundle exec rails generate rspec:swagger API::MyControllerName
-```
-
-Then watch the file in spec/request/api/my_controller_name_spec.rb and add the test cases for the endpoint.
-
-Generate documentation for the endpoint using:
-
-```bash
-bundle exec rake rswag:specs:swaggerize
 ```
